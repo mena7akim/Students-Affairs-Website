@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Title</title>
+    <link rel="stylesheet" href="../CSS/search.css" />
+    <link rel="stylesheet" href="../CSS/font-awesome.min.css" />
+
+    <link rel="stylesheet" href="../CSS/style.css" />
+    <link rel="stylesheet" href="../CSS/fontawesome/css/all.css" />
+    <script src="../JS/menu.js" defer></script>
+    <script src="../JS/search.js" defer></script>
+  </head>
+  <body>
+    <header>
+      <div class="logo-and-icon">
+        <a href="HOME.html">
+          <div id="logo">
+            <img src="../img/logo.png" alt="logo" />
+          </div>
+        </a>
+        <div class="menu-icon">
+          <i class="fa-solid fa-bars"></i>
+        </div>
+      </div>
+      <div>
+        <nav>
+          <ul class="menu">
+            <li><a href="HOME.html">HOME</a></li>
+            <li><a href="studentsPage.html">STUDENTS</a></li>
+            <li><a href="ADD-STUDENT.html">ADD STUDENT</a></li>
+            <li><a href="SEARCH.html" class="active">SEARCH</a></li>
+            <li><a href="update.html">UPDATE</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <div class="container">
+      <div class="img_">
+        <img
+          src="../img/Screenshot (113).png"
+          alt="img-search"
+          style="max-width: 60%; margin-left: 50px"
+        />
+      </div>
+      <div class="search-content">
+        <h2>search for active student</h2>
+        <form>
+          <i class="fa fa-search"></i>
+          <input
+            type="search"
+            onkeyup="searchData(this.value)"
+            id="mysearch"
+            placeholder="search"
+          />
+        </form>
+      </div>
+    </div>
+
+    <div class="table-content">
+      <table>
+        <thead>
+          <tr class="table-row">
+            <th id="Id">ID</th>
+            <th id="name">Name</th>
+            <th id="department">Department</th>
+            <th id="editDepartment">Edit department</th>
+          </tr>
+        </thead>
+        <tbody id="tbody"></tbody>
+      </table>
+    </div>
+
+    <footer>
+      <div class="first-sec">
+        <img src="../img/logo.png" alt="logo" />
+        <h3>Student Affairs Website</h3>
+      </div>
+      <div class="second-sec">
+        <div class="mid-sec">
+          <h1>Contact Us</h1>
+          <h3>+20-1159678906</h3>
+          <h3>fcai@edu.eg</h3>
+          <h3>5 Ahmed Zewail, Ad Doqi, Dokki, Giza</h3>
+        </div>
+        <div class="mid-sec">
+          <h1>Need Help</h1>
+          <h3>privacy policy</h3>
+          <h3>about us</h3>
+        </div>
+        <div class="last-sec">
+          <i class="fa-brands fa-facebook fa-xl"></i>
+          <i class="fa-brands fa-instagram fa-xl"></i>
+          <i class="fa-brands fa-linkedin fa-xl"></i>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
