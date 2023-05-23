@@ -1,0 +1,185 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap");
+
+:root {
+  --c0: rgb(255, 35, 20);
+  --c1: rgba(254, 95, 85);
+  --c2: rgba(247, 247, 255);
+  --c3: rgba(189, 213, 234);
+  --c4: rgb(19, 99, 223);
+  --c5: rgb(44, 116, 179);
+  --c6: rgb(212, 226, 240);
+  font-size: 16px;
+}
+
+.cont {
+  position: relative;
+  max-width: 800px;
+  width: 100%;
+  padding: 25px;
+  overflow: hidden;
+  border-radius: 5px;
+  box-shadow: 0 0 15px rgba(189, 213, 234);
+  background-color: white;
+}
+
+.cont form {
+  margin-top: 30px;
+}
+
+.cont form .input-box {
+  display: inline-block;
+  border: 1px solid white;
+  padding: 1rem 1rem;
+  vertical-align: middle;
+  width: 47%;
+}
+
+.content {
+  display: block;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 20px 0;
+}
+
+h1 {
+  text-align: center;
+  display: block;
+  font-size: x-large;
+  margin-top: 0.67em;
+  margin-bottom: 0.67em;
+  margin-left: 0;
+  margin-right: 0;
+  font-weight: bold;
+}
+
+input[type="submit"] {
+  background-color: rgb(243, 72, 60);
+  width: 90px;
+  color: white;
+  border: none;
+  height: 50px;
+  float: center;
+  cursor: pointer;
+  border-radius: 15px;
+  position: relative;
+  top: 20px;
+  left: 20%;
+  margin-left: 0px;
+  margin-right: 0px;
+  font-size: large;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+}
+input[type="button"] {
+  left: 50%;
+  background-color: rgb(243, 72, 60);
+  width: 60px;
+  color: white;
+  border: none;
+  height: 50px;
+  float: center;
+  cursor: pointer;
+  border-radius: 15px;
+  position: relative;
+  top: 20px;
+  margin-left: 0px;
+  margin-right: 0px;
+  font-size: large;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  font-size: 1rem;
+}
+
+input[type="text"] {
+  width: 140px;
+  border: none;
+  height: 30px;
+  background-color: rgb(249, 249, 249);
+  border-radius: 15px;
+  padding: 15px;
+  margin-left: 15px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+input[type="date"] {
+  width: 140px;
+  border: none;
+  height: 30px;
+  background-color: rgb(249, 249, 249);
+  border-radius: 15px;
+  padding: 15px;
+  margin-left: 15px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+input[type="email"] {
+  width: 160px;
+  border: none;
+  height: 30px;
+  background-color: rgb(249, 249, 249);
+  border-radius: 15px;
+  padding: 10px;
+  margin-left: 25px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+input[type="number"] {
+  width: 120px;
+  border: none;
+  height: 30px;
+  background-color: rgb(249, 249, 249);
+  border-radius: 15px;
+  padding: 15px;
+  margin-left: 15px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+#level {
+  width: 70px;
+  border: none;
+  height: 35px;
+  background-color: rgb(249, 249, 249);
+  border-radius: 15px;
+  padding: 8px;
+  margin-left: 15px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+#DP {
+  width: 190px;
+  border: none;
+  height: 35px;
+  background-color: rgb(249, 249, 249);
+  border-radius: 15px;
+  padding: 8px;
+  margin-left: 15px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+#GPA {
+  width: 80px;
+  border: none;
+  height: 30px;
+  background-color: rgb(249, 249, 249);
+  border-radius: 15px;
+  padding: 15px;
+  margin-left: 15px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+input[type="submit"] {
+  background-color: rgb(243, 72, 60);
+  width: 80px;
+  color: white;
+  border: none;
+  height: 30px;
+
+  border-radius: 15px;
+}
+input[type="reset"] {
+  background-color: rgb(243, 72, 60);
+  width: 80px;
+  color: white;
+  border: none;
+  height: 30px;
+  margin-left: 5px;
+  border-radius: 15px;
+}

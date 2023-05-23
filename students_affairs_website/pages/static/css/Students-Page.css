@@ -1,0 +1,143 @@
+/* Done by Abobakr */
+
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap");
+
+:root {
+  --c0: rgb(255, 35, 20);
+  --c1: rgba(254, 95, 85);
+  --c2: rgba(247, 247, 255);
+  --c3: rgba(189, 213, 234);
+  --c4: rgb(19, 99, 223);
+  --c5: rgb(35, 39, 250);
+  --c6: rgb(212, 226, 240);
+  font-size: 16px;
+}
+
+.filter {
+  padding: 4rem 4rem;
+}
+
+.filter-cont p {
+  padding: 1rem;
+}
+
+.filter-cont {
+  padding: 1rem 0rem;
+  text-align: center;
+  background-color: rgba(255, 255, 255, 0.3);
+}
+
+.sub-filter {
+  display: inline-block;
+  vertical-align: top;
+  padding-left: 3rem;
+  padding-right: 3rem;
+}
+
+label {
+  font-size: 0.75rem;
+}
+
+select {
+  border-radius: 0.5rem;
+  width: 130%;
+  padding: 0.1rem 0rem;
+}
+
+select option {
+  font-size: 0.75rem;
+}
+
+span {
+  font-size: 0.75rem;
+}
+
+input[type="submit"],
+input[type="reset"] {
+  background-color: var(--c1);
+  color: white;
+  border: 0rem;
+  border-radius: 1rem;
+  padding: 0.5rem 2rem;
+}
+
+input[type="submit"]:hover,
+input[type="reset"]:hover,
+#prev:hover,
+#next:hover {
+  background-color: var(--c0);
+}
+
+table {
+  width: 90%;
+  border-radius: 0.75rem;
+  margin: auto;
+  padding-bottom: 2rem;
+  font-size: 0.9rem;
+  overflow: hidden;
+  border-collapse: collapse;
+}
+
+table th {
+  background-color: var(--c1);
+  color: white;
+}
+
+table tr {
+  text-align: center;
+  height: 2.5rem;
+}
+
+table tr:nth-child(even) {
+  background: rgba(168, 218, 220, 0.3);
+}
+table tr:nth-child(odd) {
+  background: rgba(168, 218, 220, 0.6);
+}
+
+.stat-btn {
+  color: white;
+  border: 0rem;
+  border-radius: 1rem;
+  padding: 0.3rem;
+}
+
+.active {
+  background-color: lightgreen;
+}
+.active:hover {
+  background-color: green;
+}
+
+.inactive {
+  background-color: rgba(254, 95, 85, 0.9);
+}
+.inactive:hover {
+  background-color: red;
+}
+
+#indexing {
+  text-align: center;
+  padding: 1rem;
+}
+
+#indexing input {
+  width: 2rem;
+  border: 0rem;
+  color: black;
+  text-align: center;
+}
+
+#prev,
+#next {
+  background-color: var(--c1);
+  color: white;
+  border: 0rem;
+  border-radius: 1rem;
+  padding: 0.1rem 0.75rem;
+}
+
+#prev:disabled,
+#next:disabled {
+  background-color: grey;
+}
