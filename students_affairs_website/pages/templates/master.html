@@ -26,14 +26,14 @@
             <nav>
                 {% with request.resolver_match.url_name as url_name %}
                 <ul class="menu">
-                    <li><a href="home/" class="{% if url_name == 'home' %}active{% endif %}">HOME</a></li>
-                    <li><a href="studentsPage/"
+                    <li><a href="/home/" class="{% if url_name == 'home' %}active{% endif %}">HOME</a></li>
+                    <li><a href="/studentsPage/"
                             class="{% if url_name == 'studentsPage' %}active{% endif %}">STUDENTS</a>
                     </li>
-                    <li><a href="ADD-STUDENT/" class="{% if url_name == 'ADD-STUDENT' %}active{% endif %}">ADD
+                    <li><a href="/ADD-STUDENT/" class="{% if url_name == 'ADD-STUDENT' %}active{% endif %}">ADD
                             STUDENT</a></li>
-                    <li><a href="search/" class="{% if url_name == 'search' %}active{% endif %}">SEARCH</a></li>
-                    <li><a href="update/" class="{% if url_name == 'update' %}active{% endif %}">UPDATE</a></li>
+                    <li><a href="/search/" class="{% if url_name == 'search' %}active{% endif %}">SEARCH</a></li>
+                    <li><a href="/update/" class="{% if url_name == 'update' %}active{% endif %}">UPDATE</a></li>
                 </ul>
                 {% endwith %}
             </nav>

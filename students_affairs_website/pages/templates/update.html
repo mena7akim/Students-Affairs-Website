@@ -1,129 +1,95 @@
-<!--Done by Mina-->
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="../CSS/style.css" />
-    <link rel="stylesheet" href="../CSS/styleUpdate.css" />
-    <link rel="stylesheet" href="../CSS/fontawesome/css/all.css" />
-    <script src="../JS/loadStudents.js" defer></script>
-    <script src="../JS/menu.js" defer></script>
+i{% extends 'master.html' %}
+{% load static %}
 
-    <title>Update</title>
-  </head>
-  <body>
-    <header>
-      <div class="logo-and-icon">
-        <a href="HOME.html">
-          <div id="logo">
-            <img src="../img/logo.png" alt="logo" />
-          </div>
-        </a>
-        <div class="menu-icon">
-          <i class="fa-solid fa-bars"></i>
-        </div>
-      </div>
-      <div>
-        <nav>
-          <ul class="menu">
-            <li><a href="HOME.html">HOME</a></li>
-            <li><a href="studentsPage.html">STUDENTS</a></li>
-            <li><a href="ADD-STUDENT.html">ADD STUDENT</a></li>
-            <li><a href="SEARCH.html">SEARCH</a></li>
-            <li><a href="update.html" class="active">UPDATE</a></li>
-          </ul>
-        </nav>
-      </div>
-    </header>
-    <section class="table-section">
-      <h1>here you can choose student and edit his information</h1>
+{% block styles %}
+<meta charset="UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="stylesheet" href={% static 'css/style.css' %} />
+<link rel="stylesheet" href={% static 'css/styleUpdate.css' %} />
+<link rel="stylesheet" href={% static 'css/fontawesome/css/all.css' %} />
+{% comment %} <script src="../JS/loadStudents.js" defer></script>
+<script src="../JS/menu.js" defer></script> {% endcomment %}
 
-      <div class="filter-section">
-        <button id="filter">Filter</button>
-        <form id="form">
-          <div class="select-container">
-            <label for="department">Department</label>
-            <select name="department" id="department">
-              <option value="null">Defualt</option>
-              <option value="General">General</option>
-              <option value="CS">Computer Science (CS)</option>
-              <option value="IS">Information systems (IS)</option>
-              <option value="IT">Information Technology (IT)</option>
-              <option value="AI">Artificial Intelligence (AI)</option>
-              <option value="DS">Decision Support (DS)</option>
-            </select>
-            <div class="arrow-icon">
-              <i class="fa-solid fa-caret-down"></i>
-            </div>
-          </div>
-          <div class="select-container">
-            <label for="Level">Level</label>
-            <select name="level" id="level">
-              <option value="null">Defualt</option>
-              <option value="1">First</option>
-              <option value="2">Second</option>
-              <option value="3">Third</option>
-              <option value="4">Fourth</option>
-            </select>
-            <div class="arrow-icon">
-              <i class="fa-solid fa-caret-down"></i>
-            </div>
-          </div>
-          <div class="select-container">
-            <label for="sort">sort</label>
-            <select name="sort" id="sort">
-              <option value="null">Defualt</option>
-              <option value="id">ID</option>
-              <option value="name">name</option>
-              <option value="gpa">GPA</option>
-            </select>
-            <div class="arrow-icon">
-              <i class="fa-solid fa-caret-down"></i>
-            </div>
-          </div>
-          <input id="filter-btn" type="submit" value="Apply" />
-        </form>
-      </div>
+<title>Update</title>
+{% endblock %}
 
-      <table>
-        <thead>
-          <tr class="table-row">
-            <th>ID</th>
-            <th class="name">Name</th>
-            <th class="gpa">GPA</th>
-            <th class="level">Level</th>
-            <th>Department</th>
-            <th>edit</th>
-          </tr>
-        </thead>
-        <tbody id="studentsTable"></tbody>
-      </table>
-    </section>
-    <footer>
-      <div class="first-sec">
-        <img src="../img/logo.png" alt="logo" />
-        <h3>Student Affairs Website</h3>
-      </div>
-      <div class="second-sec">
-        <div class="mid-sec">
-          <h1>Contact Us</h1>
-          <h3>+20-1159678906</h3>
-          <h3>fcai@edu.eg</h3>
-          <h3>5 Ahmed Zewail, Ad Doqi, Dokki, Giza</h3>
-        </div>
-        <div class="mid-sec">
-          <h1>Need Help</h1>
-          <h3>privacy policy</h3>
-          <h3>about us</h3>
-        </div>
-        <div class="last-sec">
-          <i class="fa-brands fa-facebook fa-xl"></i>
-          <i class="fa-brands fa-instagram fa-xl"></i>
-          <i class="fa-brands fa-linkedin fa-xl"></i>
+{% block contents %}
+<section class="table-section">
+  <h1>here you can choose student and edit his information</h1>
+
+  <div class="filter-section">
+    <button id="filter">Filter</button>
+    <form id="form">
+      <div class="select-container">
+        <label for="department">Department</label>
+        <select name="department" id="department">
+          <option value="null">Defualt</option>
+          <option value="General">General</option>
+          <option value="CS">Computer Science (CS)</option>
+          <option value="IS">Information systems (IS)</option>
+          <option value="IT">Information Technology (IT)</option>
+          <option value="AI">Artificial Intelligence (AI)</option>
+          <option value="DS">Decision Support (DS)</option>
+        </select>
+        <div class="arrow-icon">
+          <i class="fa-solid fa-caret-down"></i>
         </div>
       </div>
-    </footer>
-  </body>
-</html>
+      <div class="select-container">
+        <label for="Level">Level</label>
+        <select name="level" id="level">
+          <option value="null">Defualt</option>
+          <option value="1">First</option>
+          <option value="2">Second</option>
+          <option value="3">Third</option>
+          <option value="4">Fourth</option>
+        </select>
+        <div class="arrow-icon">
+          <i class="fa-solid fa-caret-down"></i>
+        </div>
+      </div>
+      <div class="select-container">
+        <label for="sort">sort</label>
+        <select name="sort" id="sort">
+          <option value="null">Defualt</option>
+          <option value="id">ID</option>
+          <option value="name">name</option>
+          <option value="gpa">GPA</option>
+        </select>
+        <div class="arrow-icon">
+          <i class="fa-solid fa-caret-down"></i>
+        </div>
+      </div>
+      <input id="filter-btn" type="submit" value="Apply" />
+    </form>
+  </div>
+
+  <table>
+    <thead>
+      <tr class="table-row">
+        <th>ID</th>
+        <th class="name">Name</th>
+        <th class="gpa">GPA</th>
+        <th class="level">Level</th>
+        <th>Department</th>
+        <th>edit</th>
+      </tr>
+    </thead>
+    <tbody id="studentsTable">
+      {% for student in students %}
+        <tr class = "table-row">
+          <th>{{student.ID}}</th>
+          <th class="name">{{student.name}}</th>
+          <th class="gpa">{{student.GPA}}</th>
+          <th class="level">{{student.level}}</th>
+          <th>{{student.department}}</th>
+          <th><i class="fa-regular fa-pen-to-square fa-lg"></i></th>
+        </tr>
+      {% endfor %}
+          
+    </tbody>
+  </table>
+</section>
+{% endblock %}
+
