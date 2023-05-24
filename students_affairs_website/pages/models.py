@@ -1,9 +1,10 @@
 from django.db import models
+from django.utils import timezone
 
 class Student(models.Model):
     ID = models.CharField(max_length=255, primary_key=True)
     name = models.CharField(max_length=255)
-    birthDate = models.DateField(auto_now=False, auto_now_add=False)
+    birthDate = models.DateField(auto_now=False, auto_now_add=False, default=timezone.now)
     GPA = models.DecimalField(max_digits=3, decimal_places=2)
     email = models.CharField(max_length=255)
     phone = models.CharField(max_length=11)
@@ -14,7 +15,7 @@ class Student(models.Model):
         ("4", "four"),
     ]
     level = models.CharField(max_length=10,
-                    choices=level_choices)
+                    choices=level_choices, null=True)
 
     department_choices = [
         ("CS", "Computer Science"),
@@ -24,18 +25,18 @@ class Student(models.Model):
         ("AI", "Artificial Intelligence"),
     ]
     department = models.CharField(max_length=40,
-                                choices=department_choices)
+                                choices=department_choices, null=True)
 
     status_choices = [
         ("active", "active"),
         ("inactive", "inactive")
     ]
     status = models.CharField(max_length=15,
-                            choices=status_choices)
+                            choices=status_choices, null=True)
 
     gender_choices = [
         ("male", "male"),
         ("female", "female")
     ]
     gender = models.CharField(max_length=10,
-                            choices=gender_choices)
+                            choices=gender_choices, null=True)
