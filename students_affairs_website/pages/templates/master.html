@@ -1,0 +1,70 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% block styles %}
+    {% endblock %}
+</head>
+
+<body>
+    <header>
+        <div class="logo-and-icon">
+            <a href="HOME.html">
+                <div id="logo">
+                    <img src="{% static 'img/logo.png' %}" alt="logo" />
+                </div>
+            </a>
+            <div class="menu-icon">
+                <i class="fa-solid fa-bars"></i>
+            </div>
+        </div>
+        <div>
+            <nav>
+                {% with request.resolver_match.url_name as url_name %}
+                <ul class="menu">
+                    <li><a href="home/" class="{% if url_name == 'home' %}active{% endif %}">HOME</a></li>
+                    <li><a href="studentsPage/"
+                            class="{% if url_name == 'studentsPage' %}active{% endif %}">STUDENTS</a>
+                    </li>
+                    <li><a href="ADD-STUDENT/" class="{% if url_name == 'ADD-STUDENT' %}active{% endif %}">ADD
+                            STUDENT</a></li>
+                    <li><a href="search/" class="{% if url_name == 'search' %}active{% endif %}">SEARCH</a></li>
+                    <li><a href="update/" class="{% if url_name == 'update' %}active{% endif %}">UPDATE</a></li>
+                </ul>
+                {% endwith %}
+            </nav>
+        </div>
+    </header>
+    {% block contents %}
+    {% endblock %}
+    <footer>
+        <div class="first-sec">
+            <img src="{% static 'img/logo.png' %}" alt="logo" />
+            <h3>Student Affairs Website</h3>
+        </div>
+        <div class="second-sec">
+            <div class="mid-sec">
+                <h1>Contact Us</h1>
+                <h3>+20-1159678906</h3>
+                <h3>fcai@edu.eg</h3>
+                <h3>5 Ahmed Zewail, Ad Doqi, Dokki, Giza</h3>
+            </div>
+            <div class="mid-sec">
+                <h1>Need Help</h1>
+                <h3>privacy policy</h3>
+                <h3>about us</h3>
+            </div>
+            <div class="last-sec">
+                <i class="fa-brands fa-facebook fa-xl"></i>
+                <i class="fa-brands fa-instagram fa-xl"></i>
+                <i class="fa-brands fa-linkedin fa-xl"></i>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>

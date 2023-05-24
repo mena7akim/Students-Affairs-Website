@@ -1,141 +1,93 @@
+{% extends 'master.html' %}
+{% load static %}
 <!--Done by Mina-->
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="../CSS/style.css" />
-    <link rel="stylesheet" href="../CSS/styleHome.css" />
-    <link rel="stylesheet" href="../CSS/fontawesome/css/all.css" />
-    <script src="../JS/menu.js" defer></script>
-    <title>HOME</title>
-  </head>
-  <body>
-    <header>
-      <div class="logo-and-icon">
-        <a href="HOME.html">
-          <div id="logo">
-            <img src="../img/logo.png" alt="logo" />
-          </div>
-        </a>
-        <div class="menu-icon">
-          <i class="fa-solid fa-bars"></i>
-        </div>
-      </div>
-      <div>
-        <nav>
-          <ul class="menu">
-            <li><a href="HOME.html" class="active">HOME</a></li>
-            <li><a href="studentsPage.html">STUDENTS</a></li>
-            <li><a href="ADD-STUDENT.html">ADD STUDENT</a></li>
-            <li><a href="SEARCH.html">SEARCH</a></li>
-            <li><a href="update.html">UPDATE</a></li>
-          </ul>
-        </nav>
-      </div>
-    </header>
 
-    <section class="hero-section">
-      <div class="section-left">
-        <h1>Welcome to our students affairs website</h1>
-        <p>
-          Welcome to our student affairs website! Our goal is to provide you<br />
-          with the resources and support you need to succeed in college. From<br />
-          academic advising to career services, we offer a range of resources
-          to<br />
-          help you achieve your goals. Explore our site to learn more!<br />
-        </p>
-        <button onclick="window.location.href = 'ADD-STUDENT.html';">
-          ADD STUDENT
-        </button>
-      </div>
-      <div class="section-right">
-        <img src="../img/students.jpg" alt="students" />
-      </div>
-    </section>
 
-    <section class="cards-section">
-      <div class="card">
-        <img alt="img" src="../img/mortarboard.png" />
-        <label>Student Information</label>
-        <p>
-          Manage student records, including adding new students, editing
-          existing records, <br />
-          and removing records for graduated or former students. View important
-          student data, <br />
-          such as contact information, enrollment status, and academic records.
-        </p>
-      </div>
-      <div class="card">
-        <img src="../img/notification.png" alt="img" />
-        <label>Student Affairs News and Updates</label>
-        <p>
-          Stay up-to-date with the latest news and updates from the student
-          affairs <br />
-          department. Get information on upcoming events, <br />
-          new initiatives, and important announcements for students and staff.
-          <br />
-          Access resources and tools to support your work.<br />
-        </p>
-      </div>
-      <div class="card">
-        <img src="../img/seo-report.png" alt="img" />
-        <label>Student Performance and Grades</label>
-        <p>
-          Access academic records for all students, including grades, <br />
-          progress reports, and other performance indicators.<br />
-          Use data analytics tools to identify trends and areas for improvement.
-        </p>
-      </div>
-    </section>
+{% block styles %}
+<link rel="stylesheet" href="{% static 'css/style.css' %}" />
+<link rel="stylesheet" href="{% static 'css/styleHome.css' %}" />
+<link rel="stylesheet" href="{% static 'css/fontawesome/css/all.css' %}" />
+<script src="../JS/menu.js" defer></script>
+<title>HOME</title>
+{% endblock %}
 
-    <section class="contact-us-section">
-      <h1>Contact Us</h1>
-      <p>
-        We're always here to help. If you have any questions,<br />
-        comments, or concerns, please don't hesitate to reach out to us.
-      </p>
-      <form>
-        <div class="input-sec">
-          <label for="name">Name</label>
-          <input type="text" id="name" placeholder="name" />
-        </div>
-        <div class="input-sec">
-          <label for="email">Email</label>
-          <input type="email" id="email" placeholder="email" />
-        </div>
-        <div class="input-sec">
-          <label for="message">Your Message</label>
-          <textarea id="message" placeholder="put your message here"></textarea>
-        </div>
-        <input type="submit" value="submit" />
-      </form>
-    </section>
+{% block contents %}
 
-    <footer>
-      <div class="first-sec">
-        <img src="../img/logo.png" alt="logo" />
-        <h3>Student Affairs Website</h3>
-      </div>
-      <div class="second-sec">
-        <div class="mid-sec">
-          <h1>Contact Us</h1>
-          <h3>+20-1159678906</h3>
-          <h3>fcai@edu.eg</h3>
-          <h3>5 Ahmed Zewail, Ad Doqi, Dokki, Giza</h3>
-        </div>
-        <div class="mid-sec">
-          <h1>Need Help</h1>
-          <h3>privacy policy</h3>
-          <h3>about us</h3>
-        </div>
-        <div class="last-sec">
-          <i class="fa-brands fa-facebook fa-xl"></i>
-          <i class="fa-brands fa-instagram fa-xl"></i>
-          <i class="fa-brands fa-linkedin fa-xl"></i>
-        </div>
-      </div>
-    </footer>
-  </body>
-</html>
+<section class="hero-section">
+  <div class="section-left">
+    <h1>Welcome to our students affairs website</h1>
+    <p>
+      Welcome to our student affairs website! Our goal is to provide you<br />
+      with the resources and support you need to succeed in college. From<br />
+      academic advising to career services, we offer a range of resources
+      to<br />
+      help you achieve your goals. Explore our site to learn more!<br />
+    </p>
+    <button onclick="window.location.href = 'ADD-STUDENT.html';">
+      ADD STUDENT
+    </button>
+  </div>
+  <div class="section-right">
+    <img src="{% static 'img/students.jpg' %}" alt="students" />
+  </div>
+</section>
+
+<section class="cards-section">
+  <div class="card">
+    <img alt="img" src="{% static 'img/mortarboard.png' %}" />
+    <label>Student Information</label>
+    <p>
+      Manage student records, including adding new students, editing
+      existing records, <br />
+      and removing records for graduated or former students. View important
+      student data, <br />
+      such as contact information, enrollment status, and academic records.
+    </p>
+  </div>
+  <div class="card">
+    <img src="{% static 'img/notification.png' %}" alt="img" />
+    <label>Student Affairs News and Updates</label>
+    <p>
+      Stay up-to-date with the latest news and updates from the student
+      affairs <br />
+      department. Get information on upcoming events, <br />
+      new initiatives, and important announcements for students and staff.
+      <br />
+      Access resources and tools to support your work.<br />
+    </p>
+  </div>
+  <div class="card">
+    <img src="{% static 'img/seo-report.png' %}" alt="img" />
+    <label>Student Performance and Grades</label>
+    <p>
+      Access academic records for all students, including grades, <br />
+      progress reports, and other performance indicators.<br />
+      Use data analytics tools to identify trends and areas for improvement.
+    </p>
+  </div>
+</section>
+
+<section class="contact-us-section">
+  <h1>Contact Us</h1>
+  <p>
+    We're always here to help. If you have any questions,<br />
+    comments, or concerns, please don't hesitate to reach out to us.
+  </p>
+  <form>
+    <div class="input-sec">
+      <label for="name">Name</label>
+      <input type="text" id="name" placeholder="name" />
+    </div>
+    <div class="input-sec">
+      <label for="email">Email</label>
+      <input type="email" id="email" placeholder="email" />
+    </div>
+    <div class="input-sec">
+      <label for="message">Your Message</label>
+      <textarea id="message" placeholder="put your message here"></textarea>
+    </div>
+    <input type="submit" value="submit" />
+  </form>
+</section>
+
+{% endblock %}

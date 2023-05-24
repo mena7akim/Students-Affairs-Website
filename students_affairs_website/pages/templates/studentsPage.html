@@ -1,135 +1,79 @@
+{% extends 'master.html' %}
+{% load static %}
 <!-- Done by Abobakr -->
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta
-      name="Students Page"
-      content="This page have all students viewed and can change their status"
-    />
 
-    <link rel="stylesheet" href="../CSS/Students-Page.css" />
-    <link rel="stylesheet" href="../CSS/style.css" />
-    <link rel="stylesheet" href="../CSS/fontawesome/css/all.css" />
-    <script src="../JS/menu.js" defer></script>
-    <title>Students</title>
-  </head>
+{% block styles %}
+<link rel="stylesheet" href="{% static 'css/Students-Page.css' %}" />
+<link rel="stylesheet" href="{% static 'css/style.css' %}" />
+<link rel="stylesheet" href="{% static 'css/fontawesome/css/all.css' %}" />
+<script src="../JS/menu.js" defer></script>
+<title>Students</title>
+{% endblock %}
 
-  <body>
-    <header>
-      <div class="logo-and-icon">
-        <a href="HOME.html">
-          <div id="logo">
-            <img src="../img/logo.png" alt="logo" />
-          </div>
-        </a>
-        <div class="menu-icon">
-          <i class="fa-solid fa-bars"></i>
-        </div>
+{% block contents %}
+<div class="filter">
+  <form action="file.py" method="post">
+    <div class="filter-cont">
+      <p>Filter by Department, Level and/or Status</p>
+
+      <div class="sub-filter">
+        <label class="form-label" for="dept">Department</label><br />
+        <select name="Department" id="dept" class="dpt">
+          <option value="null">--------------</option>
+          <option value="General">General</option>
+          <option value="CS">Computer Science (CS)</option>
+          <option value="IS">Information systems (IS)</option>
+          <option value="IT">Information Technology (IT)</option>
+          <option value="AI">Artificial Intelligence (AI)</option>
+          <option value="Ds">Decision Support (DS)</option>
+        </select>
       </div>
-      <div>
-        <nav>
-          <ul class="menu">
-            <li><a href="HOME.html">HOME</a></li>
-            <li><a href="studentsPage.html" class="active">STUDENTS</a></li>
-            <li><a href="ADD-STUDENT.html">ADD STUDENT</a></li>
-            <li><a href="SEARCH.html">SEARCH</a></li>
-            <li><a href="update.html">UPDATE</a></li>
-          </ul>
-        </nav>
+
+      <div class="sub-filter">
+        <label for="lvl" class="form-label">Level</label><br />
+        <select name="Level" id="lvl" class="_lvl">
+          <option value="null">-------</option>
+          <option value="first">First</option>
+          <option value="second">Second</option>
+          <option value="third">Third</option>
+          <option value="fourth">Fourth</option>
+          <option value="graduated">Graduated</option>
+        </select>
       </div>
-    </header>
 
-    <div class="filter">
-      <form action="file.py" method="post">
-        <div class="filter-cont">
-          <p>Filter by Department, Level and/or Status</p>
+      <div class="sub-filter">
+        <label for="stat">Status</label> <br />
+        <input type="radio" id="stat" name="Status" value="Active" />
+        <span>Active</span> <br />
+        <input type="radio" id="stat" name="Status" value="Inactive" />
+        <span>Inactive</span>
+      </div>
+      <br />
 
-          <div class="sub-filter">
-            <label class="form-label" for="dept">Department</label><br />
-            <select name="Department" id="dept" class="dpt">
-              <option value="null">--------------</option>
-              <option value="General">General</option>
-              <option value="CS">Computer Science (CS)</option>
-              <option value="IS">Information systems (IS)</option>
-              <option value="IT">Information Technology (IT)</option>
-              <option value="AI">Artificial Intelligence (AI)</option>
-              <option value="Ds">Decision Support (DS)</option>
-            </select>
-          </div>
-
-          <div class="sub-filter">
-            <label for="lvl" class="form-label">Level</label><br />
-            <select name="Level" id="lvl" class="_lvl">
-              <option value="null">-------</option>
-              <option value="first">First</option>
-              <option value="second">Second</option>
-              <option value="third">Third</option>
-              <option value="fourth">Fourth</option>
-              <option value="graduated">Graduated</option>
-            </select>
-          </div>
-
-          <div class="sub-filter">
-            <label for="stat">Status</label> <br />
-            <input type="radio" id="stat" name="Status" value="Active" />
-            <span>Active</span> <br />
-            <input type="radio" id="stat" name="Status" value="Inactive" />
-            <span>Inactive</span>
-          </div>
-          <br />
-
-          <input type="reset" value="Reset" />
-          <input type="submit" value="Apply" />
-        </div>
-      </form>
+      <input type="reset" value="Reset" />
+      <input type="submit" value="Apply" />
     </div>
+  </form>
+</div>
 
-    <table>
-      <thead>
-        <tr>
-          <th>ID</th>
-          <th>Name</th>
-          <th>GPA</th>
-          <th>Level</th>
-          <th style="width: 10%;">Department</th>
-          <th>Active</th>
-        </tr>
-      </thead>
+<table>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Name</th>
+      <th>GPA</th>
+      <th>Level</th>
+      <th style="width: 10%;">Department</th>
+      <th>Active</th>
+    </tr>
+  </thead>
 
-      <tbody id="tbody"></tbody>
-    </table>
-    <div id="indexing">
-      <button id="prev">&lt;&lt;</button>
-      <input type="text" name="index" id="page-index" disabled />
-      <button id="next">&gt;&gt;</button>
-    </div>
-    <script src="../JS/Students-page.js"></script>
-    <footer>
-      <div class="first-sec">
-        <img src="../img/logo.png" alt="logo" />
-        <h3>Student Affairs Website</h3>
-      </div>
-      <div class="second-sec">
-        <div class="mid-sec">
-          <h1>Contact Us</h1>
-          <h3>+20-1159678906</h3>
-          <h3>fcai@edu.eg</h3>
-          <h3>5 Ahmed Zewail, Ad Doqi, Dokki, Giza</h3>
-        </div>
-        <div class="mid-sec">
-          <h1>Need Help</h1>
-          <h3>privacy policy</h3>
-          <h3>about us</h3>
-        </div>
-        <div class="last-sec">
-          <i class="fa-brands fa-facebook fa-xl"></i>
-          <i class="fa-brands fa-instagram fa-xl"></i>
-          <i class="fa-brands fa-linkedin fa-xl"></i>
-        </div>
-      </div>
-    </footer>
-  </body>
-</html>
+  <tbody id="tbody"></tbody>
+</table>
+<div id="indexing">
+  <button id="prev">&lt;&lt;</button>
+  <input type="text" name="index" id="page-index" disabled />
+  <button id="next">&gt;&gt;</button>
+</div>
+<script src="../JS/Students-page.js"></script>
+{% endblock %}
