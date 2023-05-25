@@ -26,3 +26,32 @@ def students_page(request):
       'students' : students,
   }
   return HttpResponse(template.render(context, request))
+
+def add(request):
+    if request.method == 'POST':
+      id = request.POST.get('id')
+      name = request.POST.get('name')
+      birth_date = request.POST.get('birth')
+      email = request.POST.get('email')
+      level = request.POST.get('level')
+      department = request.POST.get('department')
+      gender = request.POST.get('Gender')
+      status = request.POST.get('status')
+      mobile_number = request.POST.get('number')
+      gpa = request.POST.get('gpa')
+      data = Student(ID = id, 
+                  name = name,
+                  birthDate = birth_date,
+                  GPA = gpa,
+                  email =email,
+                  phone = mobile_number,
+                  level = level,
+                  department=department,                 
+                  gender = gender,
+                  status = status)
+      data.save()
+   
+      return render(request,'ADD-STUDENT.html')
+    else:
+       return render(request,'ADD-STUDENT.html')
+    
