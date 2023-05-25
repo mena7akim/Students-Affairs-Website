@@ -13,19 +13,20 @@
 {% block contents %}
 <div class="page-container">
   <h1>Edit department for student</h1>
-  <form id="form">
+  <form id="form" method="post">
+    {%csrf_token%}
     <div class="form-container">
       <label for="name" id="f1">Student name</label>
-      <input id="name" type="text" readonly />
+      <input id="name" type="text" value="{{Sname}}" readonly />
     </div>
     <div class="form-container">
       <label for="id" id="f2">Student Id</label>
-      <input id="id" onblur="ser(this.value)" type="number" readonly />
+      <input id="id" onblur="ser(this.value)" type="number" value={{SId}} readonly />
     </div>
     <div class="form-container">
       <label for="department" id="f3">Department</label>
-      <select id="department">
-        <option value="General">General</option>
+      <select id="department" >
+        <option value="General">{{Sdep}}</option>
         <option value="CS">Computer Science(CS)</option>
         <option value="IS">Information System(IS)</option>
         <option value="DS">Decision Support(DS)</option>
