@@ -54,4 +54,20 @@ def add(request):
       return render(request,'ADD-STUDENT.html')
     else:
        return render(request,'ADD-STUDENT.html')
+      
+def department(request):
+    if request.method=="post" :
+        student=Student.objects.get(id=request.ID) 
+        student.department  =request.post['Sdep']
+        student.save()
+       
+
+    else:
+        student=Student.objects.get(id=request.ID) 
+        context={
+             'Sname':student.name,
+             'SId':student.ID,
+             'Sdep':student.department 
+        }
+        return render(request,'department.html',context) 
     
