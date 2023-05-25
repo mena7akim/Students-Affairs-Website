@@ -10,7 +10,7 @@ class Student(models.Model):
     phone = models.CharField(max_length=11)
     level_choices = [
         ("1", "one"),
-        ("2", "tow"),
+        ("2", "two"),
         ("3", "three"),
         ("4", "four"),
     ]
@@ -18,6 +18,7 @@ class Student(models.Model):
                     choices=level_choices, null=True)
 
     department_choices = [
+        ("General", "General"),
         ("CS", "Computer Science"),
         ("IT", "Information Technology"),
         ("IS", "Information System"),
@@ -40,3 +41,6 @@ class Student(models.Model):
     ]
     gender = models.CharField(max_length=10,
                             choices=gender_choices, null=True)
+
+    def __str__(self):
+        return f'Student: {self.name} - {self.ID}'
