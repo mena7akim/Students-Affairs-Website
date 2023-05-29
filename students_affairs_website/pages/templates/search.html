@@ -8,7 +8,7 @@
 <link rel="stylesheet" href="{% static 'css/style.css' %}" />
 <link rel="stylesheet" href="{% static 'css/fontawesome/css/all.css' %}" />
 <script src="../JS/menu.js" defer></script>
-<script src="../JS/search.js" defer></script>
+<script src="{%static '/JS/search.js'%}" defer></script>
 <title>Search</title>
 {% endblock %}
 
@@ -20,10 +20,12 @@
   </div>
   <div class="search-content">
     <h2>search for active student</h2>
-    <form>
+    <form method="get">
       <i class="fa fa-search"></i>
-      <input type="search" onkeyup="searchData(this.value)" id="mysearch" placeholder="search" />
+      <input type="search" name="q"  id="mysearch" placeholder="search" />
+      <input type="submit" name="submit" class="submit" value="Search">
     </form>
+
   </div>
 </div>
 
@@ -37,7 +39,17 @@
         <th id="editDepartment">Edit department</th>
       </tr>
     </thead>
-    <tbody id="tbody"></tbody>
+    <tbody id="tbody">
+    {% for data in data %}
+    <tr>
+      <td>{{data.ID}}</td>
+      <td>{{data.name}}</td>
+      <td>{{data.department}}</td>
+<!--      <td>{{data.editDepartment}}</td>-->
+      <td ><i class="fa-regular fa-pen-to-square fa-lg" style="color: #fe5f55;" onclick="goToDepartPage('{{data.ID}}')"></i></td>
+    </tr>
+    {% endfor %}
+    </tbody>
   </table>
 </div>
 {% endblock %}
