@@ -28,13 +28,6 @@ class Student(models.Model):
     department = models.CharField(max_length=40,
                                 choices=department_choices, null=True)
 
-    status_choices = [
-        ("active", "active"),
-        ("inactive", "inactive")
-    ]
-    status = models.CharField(max_length=15,
-                            choices=status_choices, null=True)
-
     gender_choices = [
         ("male", "male"),
         ("female", "female")
@@ -42,5 +35,13 @@ class Student(models.Model):
     gender = models.CharField(max_length=10,
                             choices=gender_choices, null=True)
 
+    status_choices = [
+        ("active", "active"),
+        ("inactive", "inactive")
+    ]
+    status = models.CharField(max_length=15,
+                            choices=status_choices, null=True)
+
+  
     def __str__(self):
         return f'Student: {self.name} - {self.ID}'
