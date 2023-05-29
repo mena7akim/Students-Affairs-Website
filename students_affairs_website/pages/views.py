@@ -71,3 +71,13 @@ def department(request):
         }
         return render(request,'department.html',context) 
     
+def search(request):
+    if'q' in request.GET:
+        q=request.GET['q']
+        data=Student.objects.filter(ID__icontains=q)|Student.objects.filter(name__icontains=q)
+    else:
+        data = Student.objects.all()
+    context={
+        'data':data
+    }
+    return render(request,'search.html',context)
