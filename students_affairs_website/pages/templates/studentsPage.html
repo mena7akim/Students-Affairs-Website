@@ -1,56 +1,58 @@
+<!-- Done by Abobakr -->
 {% extends 'master.html' %}
 {% load static %}
-<!-- Done by Abobakr -->
 
 {% block styles %}
 <link rel="stylesheet" href="{% static 'css/Students-Page.css' %}" />
 <link rel="stylesheet" href="{% static 'css/style.css' %}" />
 <link rel="stylesheet" href="{% static 'css/fontawesome/css/all.css' %}" />
-<script src="../JS/menu.js" defer></script>
+<script src="{% static 'JS/menu.js' %}" defer></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <title>Students</title>
 {% endblock %}
 
 {% block contents %}
 <div class="filter">
-  <form action="file.py" method="post">
+  <form id="filter-form">
     <div class="filter-cont">
       <p>Filter by Department, Level and/or Status</p>
 
       <div class="sub-filter">
         <label class="form-label" for="dept">Department</label><br />
         <select name="Department" id="dept" class="dpt">
-          <option value="null">--------------</option>
+          <option value="">--------------</option>
           <option value="General">General</option>
           <option value="CS">Computer Science (CS)</option>
           <option value="IS">Information systems (IS)</option>
           <option value="IT">Information Technology (IT)</option>
           <option value="AI">Artificial Intelligence (AI)</option>
-          <option value="Ds">Decision Support (DS)</option>
+          <option value="DS">Decision Support (DS)</option>
         </select>
       </div>
 
       <div class="sub-filter">
         <label for="lvl" class="form-label">Level</label><br />
         <select name="Level" id="lvl" class="_lvl">
-          <option value="null">-------</option>
-          <option value="first">First</option>
-          <option value="second">Second</option>
-          <option value="third">Third</option>
-          <option value="fourth">Fourth</option>
-          <option value="graduated">Graduated</option>
+          <option value="">-------</option>
+          <option value="1">First</option>
+          <option value="2">Second</option>
+          <option value="3">Third</option>
+          <option value="4">Fourth</option>
         </select>
       </div>
 
       <div class="sub-filter">
-        <label for="stat">Status</label> <br />
-        <input type="radio" id="stat" name="Status" value="Active" />
-        <span>Active</span> <br />
-        <input type="radio" id="stat" name="Status" value="Inactive" />
-        <span>Inactive</span>
+        <label for="stat" class="form-label">Level</label><br />
+        <select id="stt" name="Status">
+          <option value="">-------</option>
+          <option value="active">active</option>
+          <option value="inactive">inactive</option>
+        </select>
       </div>
       <br />
+      <br />
 
-      <input type="reset" value="Reset" />
+      <input type="reset" value="Reset" id="reset-btn" />
       <input type="submit" value="Apply" />
     </div>
   </form>
@@ -75,5 +77,5 @@
   <input type="text" name="index" id="page-index" disabled />
   <button id="next">&gt;&gt;</button>
 </div>
-<script src="../JS/Students-page.js"></script>
+<script src="{% static 'JS/Students-Page.js' %}"></script>
 {% endblock %}
