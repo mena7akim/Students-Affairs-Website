@@ -5,9 +5,10 @@ urlpatterns = [
     path('', views.general_home, name="general_home"),
     path('home/', views.home, name='home'),
     path('update/', views.update, name='update'),
-    path('studentsPage/', views.students_page, name='studentsPage'),
     path('ADD-STUDENT/',views.add, name = 'ADD-STUDENT'),
     path('home/ADD-STUDENT/',views.add, name = 'ADD-STUDENT'),
     path('department/', views.department, name='department'),
     path('search/',views.search,name='search'),
+    path('studentsPage/', views.students_page, name='studentsPage'),
+    path('get_data/', views.get_data, name='studentssPage'),
 ]
