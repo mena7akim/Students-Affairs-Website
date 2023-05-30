@@ -20,12 +20,11 @@ def update(request):
     return HttpResponse(template.render(context, request))
 
 def students_page(request):
-  template = loader.get_template('studentsPage.html')
-  students = Student.objects.all().values()
-  context = {
-      'students' : students,
-  }
-  return HttpResponse(template.render(context, request))
+  return render(request, 'studentsPage.html')
+
+def get_data(request):
+  students_list = Student.objects.all().values()
+  return JsonResponse(list(students_list), safe=False)
 
 def add(request):
     if request.method == 'POST':
