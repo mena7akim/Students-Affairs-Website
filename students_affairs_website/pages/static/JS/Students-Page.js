@@ -26,7 +26,7 @@ let populateTable = (obj, ind) => {
 
     let statBtn = document.createElement("button");
     statBtn.classList.add("stat-btn");
-    if (obj[8] === 'active') {
+    if (obj[9] === 'active') {
         statBtn.classList.add('active');
         statBtn.innerHTML = 'Active';
     } else {
