@@ -1,214 +1,108 @@
 <!--Done by Ganna-->
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="../CSS/style.css" />
-    <link rel="stylesheet" href="../CSS/fontawesome/css/all.css" />
-    <link rel="stylesheet" href="../CSS/update.css" />
-    <script src="../JS/menu.js" defer></script>
-    <title>Edit student page</title>
-  </head>
-  <body>
-    <header>
-      <div class="logo-and-icon">
-        <a href="HOME.html">
-          <div id="logo">
-            <img src="../img/logo.png" alt="logo" />
-          </div>
-        </a>
-        <div class="menu-icon">
-          <i class="fa-solid fa-bars"></i>
-        </div>
+{% extends 'master.html' %}
+{% load static %}
+
+{% block styles %}
+<link rel="stylesheet" href="{% static 'css/style.css' %}" />
+<link rel="stylesheet" href="{% static 'css/fontawesome/css/all.css' %}" />
+<link rel="stylesheet" href="{% static 'css/update.css' %}" />
+<!-- <script src="../JS/menu.js" defer></script> -->
+<title>Edit student page</title>
+{% endblock %}
+
+{% block contents %}
+
+<div class="cont">
+  <form id="update_form" autocomplete="off">
+    <div class="content">
+      <h1>update Student Page</h1>
+      <div class="input-box">
+        <!-- ID -->
+        <label for="Student ID">Student ID</label>
+
+        <input id="Student ID" type="text" placeholder="Student ID" name="ID" required />
+      </div>
+
+      <div class="input-box">
+        <!-- name -->
+        <label for="name"> Student name</label>
+
+        <input id="name" type="text" placeholder=" Student name" name="name" required />
+      </div>
+
+      <div class="input-box">
+        <label for="E">E-Mail</label>
+
+        <input id="E" type="email" required placeholder="E-Mail" name="email" />
+      </div>
+
+      <div class="input-box">
+        <label for="pn">Mobile number</label>
+
+        <input id="pn" type="text" placeholder="Mobile number" required value="Mobile number" name="phone" />
+      </div>
+
+      <div class="input-box">
+        <!-- date -->
+        <label for="Date">Date of birth</label>
+
+        <input id="Date" type="date" name="date" required />
+      </div>
+      <div class="input-box">
+        <!-- GPA -->
+        <label for="GPA">GPA</label>
+
+        <input id="GPA" type="number" placeholder="GPA" name="GPA" min="0.1" max="4.00" step="0.01" />
+      </div>
+      <div class="input-box">
+        <label for="DP"> Department </label>
+        <input id="DP" name="Department" disabled />
+      </div>
+
+      <div class="input-box">
+        <!-- levels -->
+        <label for="level">Level</label>
+        <select id="level" name="level">
+          <option>1</option>
+          <option>2</option>
+          <option>3</option>
+          <option>4</option>
+        </select>
+      </div>
+
+      <div class="input-box">
+        <!-- gndr -->
+        <br />
+        <label for="gender">Gender</label>
+        <br />
+        <input id="gender" type="radio" value="Male" name="gender" required />
+        <label id="gender">Male</label>
+        <br />
+        <input id="gender" type="radio" value="Female" name="gender" required />
+        <label id="gender">Female</label>
+      </div>
+      <div class="input-box">
+        <!-- status -->
+        <label for="status">status</label>
+        <br />
+        <input id="status" type="radio" value="active" name="status" required />
+        <label id="status">active</label>
+        <br />
+        <input id="status" type="radio" value="inactive" name="status" required />
+        <label id="status">inactive</label>
+      </div>
+
+      <br /><br />
+      <div class="button_">
+        <input type="submit" value="Update" id="sb" />
+        <input type="button" value="Delete" id="de" />
       </div>
       <div>
-        <nav>
-          <ul class="menu">
-            <li><a href="HOME.html">HOME</a></li>
-            <li><a href="studentsPage.html">STUDENTS</a></li>
-            <li><a href="ADD-STUDENT.html">ADD STUDENT</a></li>
-            <li><a href="SEARCH.html">SEARCH</a></li>
-            <li><a href="update.html" class="active">UPDATE</a></li>
-          </ul>
-        </nav>
+        <p id="message"></p>
       </div>
-    </header>
-
-    <div class="cont">
-      <form id="update_form" autocomplete="off">
-        <div class="content">
-          <h1>update Student Page</h1>
-          <div class="input-box">
-            <!-- ID -->
-            <label for="Student ID">Student ID</label>
-
-            <input
-              id="Student ID"
-              type="text"
-              placeholder="Student ID"
-              name="ID"
-              required
-            />
-          </div>
-
-          <div class="input-box">
-            <!-- name -->
-            <label for="name"> Student name</label>
-
-            <input
-              id="name"
-              type="text"
-              placeholder=" Student name"
-              name="name"
-              required
-            />
-          </div>
-
-          <div class="input-box">
-            <label for="E">E-Mail</label>
-
-            <input
-              id="E"
-              type="email"
-              required
-              placeholder="E-Mail"
-              name="email"
-            />
-          </div>
-
-          <div class="input-box">
-            <label for="pn">Mobile number</label>
-
-            <input
-              id="pn"
-              type="text"
-              placeholder="Mobile number"
-              required
-              value="Mobile number"
-              name="phone"
-            />
-          </div>
-
-          <div class="input-box">
-            <!-- date -->
-            <label for="Date">Date of birth</label>
-
-            <input id="Date" type="date" name="date" required />
-          </div>
-          <div class="input-box">
-            <!-- GPA -->
-            <label for="GPA">GPA</label>
-
-            <input
-              id="GPA"
-              type="number"
-              placeholder="GPA"
-              name="GPA"
-              min="0.1"
-              max="4.00"
-              step="0.01"
-            />
-          </div>
-          <div class="input-box">
-            <label for="DP"> Department </label>
-            <input id="DP" name="Department" disabled />
-          </div>
-
-          <div class="input-box">
-            <!-- levels -->
-            <label for="level">Level</label>
-            <select id="level" name="level">
-              <option>1</option>
-              <option>2</option>
-              <option>3</option>
-              <option>4</option>
-            </select>
-          </div>
-
-          <div class="input-box">
-            <!-- gndr -->
-            <br />
-            <label for="gender">Gender</label>
-            <br />
-            <input
-              id="gender"
-              type="radio"
-              value="Male"
-              name="gender"
-              required
-            />
-            <label id="gender">Male</label>
-            <br />
-            <input
-              id="gender"
-              type="radio"
-              value="Female"
-              name="gender"
-              required
-            />
-            <label id="gender">Female</label>
-          </div>
-          <div class="input-box">
-            <!-- status -->
-            <label for="status">status</label>
-            <br />
-            <input
-              id="status"
-              type="radio"
-              value="active"
-              name="status"
-              required
-            />
-            <label id="status">active</label>
-            <br />
-            <input
-              id="status"
-              type="radio"
-              value="inactive"
-              name="status"
-              required
-            />
-            <label id="status">inactive</label>
-          </div>
-
-          <br /><br />
-          <div class="button_">
-            <input type="submit" value="Update" id="sb" />
-            <input type="button" value="Delete" id="de" />
-          </div>
-          <div>
-            <p id="message"></p>
-          </div>
-        </div>
-      </form>
     </div>
-    <script src="../JS/update_page.js"></script>
+  </form>
+</div>
+<script src="{% static 'JS/update_page.js' %}"></script>
 
-    <footer>
-      <div class="first-sec">
-        <img src="../img/logo.png" alt="logo" />
-        <h3>Student Affairs Website</h3>
-      </div>
-      <div class="second-sec">
-        <div class="mid-sec">
-          <h1>Contact Us</h1>
-          <h3>+20-1159678906</h3>
-          <h3>fcai@edu.eg</h3>
-          <h3>5 Ahmed Zewail, Ad Doqi, Dokki, Giza</h3>
-        </div>
-        <div class="mid-sec">
-          <h1>Need Help</h1>
-          <h3>privacy policy</h3>
-          <h3>about us</h3>
-        </div>
-        <div class="last-sec">
-          <i class="fa-brands fa-facebook fa-xl"></i>
-          <i class="fa-brands fa-instagram fa-xl"></i>
-          <i class="fa-brands fa-linkedin fa-xl"></i>
-        </div>
-      </div>
-    </footer>
-  </body>
-</html>
+{% endblock %}
