@@ -27,7 +27,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
-
+CSRF_ENABLED = True
 # Application definition
 
 INSTALLED_APPS = [
