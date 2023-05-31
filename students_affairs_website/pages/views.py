@@ -80,3 +80,15 @@ def search(request):
         'data':data
     }
     return render(request,'search.html',context)
+
+def update_data(request):
+  student_id = request.POST.get('student_id')
+  student = Student.objects.get(ID=student_id)
+
+  if (student.status == "active"):
+    student.status = "inactive"
+  else:
+    student.status = "active"
+
+  student.save()
+  return JsonResponse({'success': student.status})
