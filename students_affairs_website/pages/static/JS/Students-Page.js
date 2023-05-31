@@ -4,7 +4,7 @@ let prev = document.getElementById("prev");
 let index = document.getElementById("page-index");
 
 // Function that populates the table with data
-let populateTable = (obj, ind) => {
+let populateTable = (obj) => {
     let tb = document.getElementById("tbody");
     let row = document.createElement("tr");
 
@@ -145,9 +145,9 @@ function getStudents(filter) {
                 const endIndex = startIndex + rowsPerPage;
 
                 // Loop through the rows for the current page and append them to the table
-                for (let i = startIndex; i < endIndex && i <= studentList.length; i++) {
+                for (let i = startIndex; i < endIndex && i < studentList.length; i++) {
                     const obj = Object.values(studentList[i]);
-                    populateTable(obj, i);
+                    populateTable(obj);
                 }
             }
             showRows(data);
