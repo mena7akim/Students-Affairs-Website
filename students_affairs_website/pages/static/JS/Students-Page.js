@@ -38,6 +38,37 @@ let populateTable = (obj, ind) => {
     cell = document.createElement("td");
     cell.appendChild(statBtn);
 
+    statBtn.onclick = () => {
+        let stud_id = obj[0];
+        let csrfToken = document.getElementById('tbody').getAttribute('data-csrf');
+        $.ajax({
+            url: "/update_data/",
+            type: "POST",
+            data: {
+                "student_id": stud_id
+            },
+            dataType: "json",
+            headers: {
+                'X-CSRFToken': csrfToken
+            },
+            success: function (response) {
+                console.log(response.success);
+                if (response.success == "active") {
+                    statBtn.classList.remove("inactive");
+                    statBtn.classList.add("active");
+                    statBtn.innerHTML = "Active";
+                } else {
+                    statBtn.classList.remove("active");
+                    statBtn.classList.add("inactive");
+                    statBtn.innerHTML = "Inactive";
+                }
+            },
+            error: function (error) {
+                console.log(error);
+            }
+        });
+    }
+
     // Appending the rows of the table
     row.appendChild(cell);
     tb.appendChild(row);
