@@ -1,14 +1,15 @@
-i{% extends 'master.html' %}
+{% extends 'master.html' %}
 {% load static %}
 
 {% block styles %}
 <meta charset="UTF-8" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<link rel="stylesheet" href={% static 'css/style.css' %} />
-<link rel="stylesheet" href={% static 'css/styleUpdate.css' %} />
-<link rel="stylesheet" href={% static 'css/fontawesome/css/all.css' %} />
-{% comment %} <script src="../JS/loadStudents.js" defer></script>
+<link rel="stylesheet" href="{% static 'css/style.css' %}" />
+<link rel="stylesheet" href="{% static 'css/styleUpdate.css' %}" />
+<link rel="stylesheet" href="{% static 'css/fontawesome/css/all.css' %}" />
+{% comment %}
+<script src="../JS/loadStudents.js" defer></script>
 <script src="../JS/menu.js" defer></script> {% endcomment %}
 
 <title>Update</title>
@@ -78,18 +79,17 @@ i{% extends 'master.html' %}
     </thead>
     <tbody id="studentsTable">
       {% for student in students %}
-        <tr class = "table-row">
-          <th>{{student.ID}}</th>
-          <th class="name">{{student.name}}</th>
-          <th class="gpa">{{student.GPA}}</th>
-          <th class="level">{{student.level}}</th>
-          <th>{{student.department}}</th>
-          <th><i class="fa-regular fa-pen-to-square fa-lg"></i></th>
-        </tr>
+      <tr class="table-row">
+        <th>{{student.ID}}</th>
+        <th class="name">{{student.name}}</th>
+        <th class="gpa">{{student.GPA}}</th>
+        <th class="level">{{student.level}}</th>
+        <th>{{student.department}}</th>
+        <th><i class="fa-regular fa-pen-to-square fa-lg"></i></th>
+      </tr>
       {% endfor %}
-          
+
     </tbody>
   </table>
 </section>
 {% endblock %}
-
