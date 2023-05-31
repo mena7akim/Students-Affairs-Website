@@ -1,6 +1,7 @@
 <!-- Done by Abobakr -->
 {% extends 'master.html' %}
 {% load static %}
+{% csrf_token %}
 
 {% block styles %}
 <link rel="stylesheet" href="{% static 'css/Students-Page.css' %}" />
@@ -42,7 +43,7 @@
       </div>
 
       <div class="sub-filter">
-        <label for="stat" class="form-label">Level</label><br />
+        <label for="stat" class="form-label">Status</label><br />
         <select id="stt" name="Status">
           <option value="">-------</option>
           <option value="active">active</option>
@@ -70,7 +71,7 @@
     </tr>
   </thead>
 
-  <tbody id="tbody"></tbody>
+  <tbody id="tbody" data-csrf="{{ csrf_token }}"></tbody>
 </table>
 <div id="indexing">
   <button id="prev">&lt;&lt;</button>
