@@ -114,3 +114,44 @@ def delete(request, ID):
     student= Student.objects.get(ID=ID)  
     student.delete()  
     return redirect("/home/")
+
+
+from django.shortcuts import render
+from django.http import JsonResponse
+
+def filter_data(request):
+    department = request.GET.get('department')
+    level = request.GET.get('level')
+    sort = request.GET.get('sort')
+
+
+    filtered_students = Student.objects.all()
+
+
+    if department and department != 'null':
+        if sort and sort != 'null':
+          filtered_students = filtered_students.filter(department=department).order_by(sort)
+        else:
+          filtered_students = filtered_students.filter(department=department)
+    if level and level != 'null':
+        if sort and sort != 'null':
+          filtered_students = filtered_students.filter(level=level).order_by(sort)
+        else:
+           filtered_students = filtered_students.filter(level=level)
+    if level and level != 'null' and department and department != 'null':
+        if sort and sort != 'null':
+          filtered_students = filtered_students.filter(level=level, department=department).order_by(sort)
+        else:
+            filtered_students = filtered_students.filter(level=level, department=department)
+                                                                          
+    filtered_data = []
+    for student in filtered_students:
+        filtered_data.append({
+            'ID': student.ID,
+            'name': student.name,
+            'GPA': str(student.GPA),
+            'level': student.level,
+            'department': student.department,
+        })
+
+    return JsonResponse(filtered_data, safe=False)
