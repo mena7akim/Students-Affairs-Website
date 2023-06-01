@@ -25,13 +25,13 @@
     </div>
     <div class="form-container">
       <label for="department" id="f3">Department</label>
-      <select id="department" >
-        <option value="General">{{Sdep}}</option>
-        <option value="CS">Computer Science(CS)</option>
-        <option value="IS">Information System(IS)</option>
-        <option value="DS">Decision Support(DS)</option>
-        <option value="AI">Artificial Intelligence(AI)</option>
-        <option value="IT">Information Technology(IT)</option>
+      <select id="department" name="Sdep">
+        <option value="General" {% if Sdep == "General" %} selected="selected" {% endif %} >General</option>
+        <option value="CS" {% if Sdep == "CS" %} selected="selected" {% endif %} >Computer Science(CS)</option>
+        <option value="IS" {% if Sdep == "IS" %} selected="selected" {% endif %} >Information System(IS)</option>
+        <option value="DS" {% if Sdep == "DS" %} selected="selected" {% endif %} >Decision Support(DS)</option>
+        <option value="AI" {% if Sdep == "AI" %} selected="selected" {% endif %} >Artificial Intelligence(AI)</option>
+        <option value="IT" {% if Sdep == "IT" %} selected="selected" {% endif %} >Information Technology(IT)</option>
       </select>
     </div>
     <input type="submit" id="submit" />

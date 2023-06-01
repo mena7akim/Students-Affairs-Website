@@ -1,105 +1,106 @@
 {% extends 'master.html' %}
 {% load static %}
-
 {% block styles %}
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
     <link rel="stylesheet" href="{% static 'css/style.css' %}" />
-    <link rel="stylesheet" href="{% static 'css/fontawesome/css/all.css' %}" />
+    <link rel="stylesheet" href="{% static 'cssfontawesome/css/all.css' %}" />
     <link rel="stylesheet" href="{% static 'css/update.css' %}" />
-    <script src="{% static 'update.js' %}" defer></script>
+    <script src="{% static 'js/edit.js' %}" defer></script>
     <title>Edit student page</title>
 {% endblock %}
   
 {% block contents %}
-  <div class="cont">
-    <form method="POST" action="/Update/{{student.ID}}" autocomplete="off" id="update_form">
-        {% csrf_token %}
-        <h>update Student Page</h>
-        <div class='input-box' >
-            <label for="Student ID">Student ID</label>
-            <input type="text" name="ID" required value={{student.ID}} />
-            </div>
-        
+<div class="cont">
+  <form method="POST" action="/Update/{{student.ID}}" autocomplete="off" id="update_form">
+      {% csrf_token %}
+      <h>update Student Page</h>
+      <div class='input-box' >
+          <label for="Student ID">Student ID</label>
+          <input type="text" name="ID" required value={{student.ID}} />
+          </div>
+      
 
-        <div class='input-box'>
-          <label for="name">  Student name</label>
-          <input type="text" name="name" value={{student.name}} />
-        </div>
-        <div class='input-box' > 
-          <label for="E">E-Mail</label> 
-          <input type="email" name="email" value={{student.email}} />
-        </div>
-            
-            <div class='input-box'>
-              <label for="pn">Mobile number</label>
-              <input type="text" name="phone" id="phone" value={{student.phone}} />
-            </div>
-             
-            <div class='input-box' >
+      <div class='input-box'>
+        <label for="name">  Student name</label>
+        <input type="text" name="name" value={{student.name}} />
+      </div>
+      <div class='input-box' > 
+        <label for="E">E-Mail</label> 
+        <input type="email" name="email" value={{student.email}} />
+      </div>
           
-          <!-- <label for="Date">Date of birth</label>
-           <input id="Date" type="date"  name="date" value="{{student.date_of_birth|date:'Y-m-d'}}">
-        </div> -->
-        <div class='input-box' >
-        <label for="GPA">GPA</label>
-        <input id="GPA" type="number" value={{student.GPA}} name="GPA" min="0.1" max="4.00" step="0.01"/>
+          <div class='input-box'>
+            <label for="pn">Mobile number</label>
+            <input type="text" name="phone" id="phone" value={{student.phone}} />
           </div>
+           
+          <div class='input-box' >
         
-            <div class="input-box">
-              <label for="level">Level</label>
-              <select id="level" name="level">
-                <option value="1"{%if student.level == '1' %}selected{%endif%}>1</option>
-                <option value="2"{%if student.level == '2' %}selected{%endif%}>2</option>
-                <option value="3"{%if student.level == '3' %}selected{%endif%}>3</option>
-                <option value="4"{%if student.level == '4' %}selected{%endif%}>4</option>
-              </select>
-            </div>
-
-            <div class="input-box">
-              <label for="department">department</label>
-              <select id="department" name="department"  >
-                <option value="General"{%if student.department == 'General' %}selected{%endif%}>General</option>
-                <option value="CS"{%if student.department == 'CS' %}selected{%endif%}>CS</option>
-                <option value="IT"{%if student.department == 'IT' %}selected{%endif%}>IT</option>
-                <option value="DS"{%if student.department == 'DS' %}selected{%endif%}>DS</option>
-                <option value="AI"{%if student.department == 'AI' %}selected{%endif%}>AI</option>
-              </select>
-            </div>
-            <div class="input-box">
-              <br>
-              <label for="gender">Gender</label>
-              <br>
-              <input id="gender" type="radio" value="male" name="gender" required {%if student.gender == 'male' %}checked{%endif%} />
-              <label id="gender">Male</label>
-              <br>
-              <input id="gender" type="radio" value="female" name="gender" required {%if student.gender == 'female' %}checked{%endif%} />
-              <label id="gender">Female</label>
-            </div>
-            <div class="input-box">
-                
-              <label for="status">status</label>
-              <br>
-              <input id="status" type="radio" value="active" name="status"  required {%if student.status == 'active' %}checked{%endif%}/>
-              <label id="status">active</label>
-              <br>
-              <input id="status" type="radio" value="inactive" name="status" required {%if student.status == 'inactive' %}checked{%endif%} />
-              <label id="status">inactive</label>
-            </div>
-             
-
-            <div class="button_">
-              <input type="submit" value="Update" name="update"/>
-              <a href="/delete/{{student.id}}"><input type="button" value="delete"></a>
-            </div>
-        
-        <div>
-            <p id="message"></p>
+        <label for="Date">Date of birth</label>
+         <input id="Date" type="date"  name="date" value={{student.date_of_birth|date:'Y-m-d'}}>
+      </div>
+      <div class='input-box' >
+      <label for="GPA">GPA</label>
+      <input id="GPA" type="number" value={{student.GPA}} name="GPA" min="0.1" max="4.00" step="0.01"/>
+        </div>
+      
+          <div class="input-box">
+            <label for="level">Level</label>
+            <select id="level" name="level">
+              <option value="1"{%if student.level == '1' %}selected{%endif%}>1</option>
+              <option value="2"{%if student.level == '2' %}selected{%endif%}>2</option>
+              <option value="3"{%if student.level == '3' %}selected{%endif%}>3</option>
+              <option value="4"{%if student.level == '4' %}selected{%endif%}>4</option>
+            </select>
           </div>
+
+          <div class="input-box">
+            <label for="department">department</label>
+            <select id="department" name="department"  >
+              <option value="General"{%if student.department == 'General' %}selected{%endif%}>General</option>
+              <option value="CS"{%if student.department == 'CS' %}selected{%endif%}>CS</option>
+              <option value="IT"{%if student.department == 'IT' %}selected{%endif%}>IT</option>
+              <option value="DS"{%if student.department == 'DS' %}selected{%endif%}>DS</option>
+              <option value="AI"{%if student.department == 'AI' %}selected{%endif%}>AI</option>
+            </select>
+          </div>
+          <div class="input-box">
+            <label for="gender">Gender</label>
+            <br>
+            <input id="gender" type="radio" value="male" name="gender" {%if student.gender == 'male' %}checked{% endif %}>
+            <label for="gender">Male</label>
+            <br>
+            <input id="gender" type="radio" value="female" name="gender" {%if student.gender == 'female' %}checked{% endif %}>
+            <label for="gender">Female</label>
+          </div>
+          
+          <div class="input-box">
+              
+            <label for="status">status</label>
+            <br>
+            <input id="status" type="radio" value="active" name="status"  required {%if student.status == 'active' %}checked{%endif%}/>
+            <label id="status">active</label>
+            <br>
+            <input id="status" type="radio" value="inactive" name="status" required {%if student.status == 'inactive' %}checked{%endif%} />
+            <label id="status">inactive</label>
+          </div>
+           
+
+          <div class="button_">
+            <input type="submit" value="Update" name="update"/>
+            <a href="/delete/{{student.ID}}"><input type="button" value="delete"></a>
+          </div>
+      
+      <div>
+          <p id="message"></p>
         </div>
       </div>
-      </form>
     </div>
-    <script src="{% static 'update.js' %}"></script>
+    </form>
+  </div>
+  <script src="{% static 'update.js' %}"></script>
 {% endblock %}
+ 

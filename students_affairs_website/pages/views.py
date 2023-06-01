@@ -1,8 +1,9 @@
 from django.shortcuts import render,redirect
-from django.http import HttpResponse, JsonResponse
+from django.http import HttpResponse, HttpResponseRedirect, JsonResponse
 from django.template import loader
 from .models import Student
 from .forms import StudentForm
+from datetime import datetime
 
 def home(request):
   template = loader.get_template('home.html')
@@ -56,12 +57,11 @@ def add(request):
        return render(request,'ADD-STUDENT.html')
       
 def department(request, ID):
-    if request.method=="post" :
+    if request.method=='POST':
         student=Student.objects.get(ID=ID) 
-        student.department  =request.post['Sdep']
+        student.department=request.POST['Sdep']
         student.save()
-       
-
+        return HttpResponseRedirect('/search/')
     else:
         student=Student.objects.get(ID=ID) 
         context={
@@ -116,31 +116,43 @@ def delete(request, ID):
     return redirect("/home/")
 
 
-from django.shortcuts import render
-from django.http import JsonResponse
 
 def filter_data(request):
     department = request.GET.get('department')
     level = request.GET.get('level')
     sort = request.GET.get('sort')
 
-
     filtered_students = Student.objects.all()
 
+    if sort == 'GPA':
+      filtered_students = filtered_students = Student.objects.all().order_by('-GPA')
+    else:
+      filtered_students = filtered_students = Student.objects.all().order_by(sort)
 
     if department and department != 'null':
         if sort and sort != 'null':
-          filtered_students = filtered_students.filter(department=department).order_by(sort)
+          if sort == 'GPA':
+            filtered_students = filtered_students.filter(department=department).order_by('-GPA')
+          else:
+             filtered_students = filtered_students.filter(department=department).order_by(sort)
         else:
           filtered_students = filtered_students.filter(department=department)
+
     if level and level != 'null':
         if sort and sort != 'null':
-          filtered_students = filtered_students.filter(level=level).order_by(sort)
+          if sort == 'GPA':
+            filtered_students = filtered_students.filter(level=level).order_by('-GPA')
+          else:
+            filtered_students = filtered_students.filter(level=level).order_by(sort)
         else:
            filtered_students = filtered_students.filter(level=level)
+
     if level and level != 'null' and department and department != 'null':
         if sort and sort != 'null':
-          filtered_students = filtered_students.filter(level=level, department=department).order_by(sort)
+          if sort == 'GPA':
+            filtered_students = filtered_students.filter(level=level, department=department).order_by('-GPA')
+          else:
+            filtered_students = filtered_students.filter(level=level, department=department).order_by(sort)
         else:
             filtered_students = filtered_students.filter(level=level, department=department)
                                                                           
@@ -155,3 +167,9 @@ def filter_data(request):
         })
 
     return JsonResponse(filtered_data, safe=False)
+
+
+def checkExist(request):
+    existsID = Student.objects.filter(ID=request.GET.get('ID')).exists()
+    existsEmail = Student.objects.filter(email=request.GET.get('Email')).exists()
+    return JsonResponse({'existsID': existsID, 'existsEmail' : existsEmail})

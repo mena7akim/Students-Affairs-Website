@@ -43,16 +43,36 @@ document.getElementById("sub-btn").onclick = function (e) {
     isValidStatus() &&
     isValidDate(dateValue)
   ) {
-  
+    // Make AJAX request to checkExist endpoint
+    const xhr = new XMLHttpRequest();
+    xhr.open("GET", "/Exist/?ID=" + idValue + "&Email=" + emailValue, true);
+    xhr.onreadystatechange = function () {
+      if (xhr.readyState === 4 && xhr.status === 200) {
+        const response = JSON.parse(xhr.responseText);
+        const existsID = response.existsID;
+        const existsEmail = response.existsEmail;
 
-    toggle();
-    openPopup();
-    
-    document.getElementById("popup-btn").onclick = function () {
-      form.submit();
-      closePopup();
+        if (existsID) {
+          setError(id, "ID already exists");
+        } else {
+          setSuccess(id);
+        }
+
+        if (existsEmail) {
+          setError(email, "Email already exists");
+        } else if(!existsID){
+          setSuccess(email);
+          // Continue with form submission
+          toggle();
+          openPopup();
+          document.getElementById("popup-btn").onclick = function () {
+            form.submit();
+            closePopup();
+          };
+        }
+      }
     };
-
+    xhr.send();
   }
 };
 
