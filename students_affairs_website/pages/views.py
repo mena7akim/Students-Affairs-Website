@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render,redirect
 from django.http import HttpResponse, JsonResponse
 from django.template import loader
 from .models import Student
@@ -92,3 +92,24 @@ def update_data(request):
 
   student.save()
   return JsonResponse({'success': student.status})
+
+
+def edit(request, ID):
+    student = Student.objects.get(ID=ID)
+    form = StudentForm(instance=student)
+    return render(request,'Edit.html', {'form':form, 'student':student})
+
+
+def Update_d(request,ID):
+    student = Student.objects.get(ID=ID)
+    form = StudentForm(request.POST or None,instance=student)
+    if form.is_valid():
+     form.save()
+     return redirect("/home/")
+    return render(request, 'Edit.html', {'form':form})
+
+
+def delete(request, ID):  
+    student= Student.objects.get(ID=ID)  
+    student.delete()  
+    return redirect("/home/")
