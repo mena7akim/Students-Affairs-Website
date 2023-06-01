@@ -46,7 +46,7 @@
       <td>{{data.name}}</td>
       <td>{{data.department}}</td>
 <!--      <td>{{data.editDepartment}}</td>-->
-      <td ><i class="fa-regular fa-pen-to-square fa-lg" style="color: #fe5f55;" onclick="goToDepartPage('{{data.ID}}')"></i></td>
+      <td><a href="department/{{data.ID}}"><i class="fa-regular fa-pen-to-square fa-lg" style="color: #fe5f55;"></i></a></td>
     </tr>
     {% endfor %}
     </tbody>

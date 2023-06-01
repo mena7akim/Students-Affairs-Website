@@ -8,9 +8,9 @@
 <link rel="stylesheet" href="{% static 'css/style.css' %}" />
 <link rel="stylesheet" href="{% static 'css/styleUpdate.css' %}" />
 <link rel="stylesheet" href="{% static 'css/fontawesome/css/all.css' %}" />
-{% comment %}
-<script src="../JS/loadStudents.js" defer></script>
-<script src="../JS/menu.js" defer></script> {% endcomment %}
+
+<script src={% static 'JS/update.js' %} defer></script>
+<script src={% static 'JS/menu.js' %} defer></script>
 
 <title>Update</title>
 {% endblock %}
@@ -80,12 +80,12 @@
     <tbody id="studentsTable">
       {% for student in students %}
       <tr class="table-row">
-        <th>{{student.ID}}</th>
-        <th class="name">{{student.name}}</th>
-        <th class="gpa">{{student.GPA}}</th>
-        <th class="level">{{student.level}}</th>
-        <th>{{student.department}}</th>
-        <th><i class="fa-regular fa-pen-to-square fa-lg"></i></th>
+        <td class="table-col">{{student.ID}}</td>
+        <td class="name table-col">{{student.name}}</td>
+        <td class="gpa table-col">{{student.GPA}}</td>
+        <td class="level table-col">{{student.level}}</td>
+        <td class="table-col">{{student.department}}</td>
+        <td class="table-col"><a href="edit/{{student.ID}}"><i class="fa-regular fa-pen-to-square fa-lg" style="color: rgba(254, 95, 85);"></a></i></td>
       </tr>
       {% endfor %}
 

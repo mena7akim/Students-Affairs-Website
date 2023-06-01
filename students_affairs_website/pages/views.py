@@ -2,6 +2,7 @@ from django.shortcuts import render,redirect
 from django.http import HttpResponse, JsonResponse
 from django.template import loader
 from .models import Student
+from .forms import StudentForm
 
 def home(request):
   template = loader.get_template('home.html')
@@ -54,15 +55,15 @@ def add(request):
     else:
        return render(request,'ADD-STUDENT.html')
       
-def department(request):
+def department(request, ID):
     if request.method=="post" :
-        student=Student.objects.get(id=request.ID) 
+        student=Student.objects.get(ID=ID) 
         student.department  =request.post['Sdep']
         student.save()
        
 
     else:
-        student=Student.objects.get(id=request.ID) 
+        student=Student.objects.get(ID=ID) 
         context={
              'Sname':student.name,
              'SId':student.ID,
@@ -71,11 +72,11 @@ def department(request):
         return render(request,'department.html',context) 
     
 def search(request):
-    if'q' in request.GET:
+    if 'q' in request.GET:
         q=request.GET['q']
-        data=Student.objects.filter(ID__icontains=q)|Student.objects.filter(name__icontains=q)
+        data=Student.objects.filter(ID__icontains=q, status="active")|Student.objects.filter(name__icontains=q, status="active")
     else:
-        data = Student.objects.all()
+        data =Student.objects.filter(status="active")
     context={
         'data':data
     }

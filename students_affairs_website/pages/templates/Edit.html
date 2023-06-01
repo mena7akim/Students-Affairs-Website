@@ -1,42 +1,18 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
+{% extends 'master.html' %}
+{% load static %}
+
+{% block styles %}
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    {% load static %}
-    <link rel="stylesheet" href="../CSS/style.css" />
-    <link rel="stylesheet" href="../CSS/fontawesome/css/all.css" />
-    <link rel="stylesheet" href="{% static 'update.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/fontawesome/css/all.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/update.css' %}" />
     <script src="{% static 'update.js' %}" defer></script>
     <title>Edit student page</title>
-   
+{% endblock %}
   
-  </head>
-  <header>
-    <div class="logo-and-icon">
-      <a href="HOME.html">
-        <div id="logo">
-          <img src="../img/logo.png" alt="logo" />
-        </div>
-      </a>
-      <div class="menu-icon">
-        <i class="fa-solid fa-bars"></i>
-      </div>
-    </div>
-    <div>
-      <nav>
-        <ul class="menu">
-          <li><a href="HOME.html">HOME</a></li>
-          <li><a href="studentsPage.html">STUDENTS</a></li>
-          <li><a href="ADD-STUDENT.html">ADD STUDENT</a></li>
-          <li><a href="SEARCH.html">SEARCH</a></li>
-          <li><a href="update.html" class="active">UPDATE</a></li>
-        </ul>
-      </nav>
-    </div>
-  </header>
-<body>
+{% block contents %}
   <div class="cont">
     <form method="POST" action="/Update/{{student.ID}}" autocomplete="off" id="update_form">
         {% csrf_token %}
@@ -126,32 +102,4 @@
       </form>
     </div>
     <script src="{% static 'update.js' %}"></script>
-   
-    
-    <footer>
-        <div class="first-sec">
-          <img src="../img/logo.png" alt="logo" />
-          <h3>Student Affairs Website</h3>
-        </div>
-        <div class="second-sec">
-          <div class="mid-sec">
-            <h1>Contact Us</h1>
-            <h3>+20-1159678906</h3>
-            <h3>fcai@edu.eg</h3>
-            <h3>5 Ahmed Zewail, Ad Doqi, Dokki, Giza</h3>
-          </div>
-          <div class="mid-sec">
-            <h1>Need Help</h1>
-            <h3>privacy policy</h3>
-            <h3>about us</h3>
-          </div>
-          <div class="last-sec">
-            <i class="fa-brands fa-facebook fa-xl"></i>
-            <i class="fa-brands fa-instagram fa-xl"></i>
-            <i class="fa-brands fa-linkedin fa-xl"></i>
-          </div>
-        </div>
-      </footer>
-</body>
-
-</html>
+{% endblock %}
