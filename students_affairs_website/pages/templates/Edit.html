@@ -14,33 +14,33 @@
   
 {% block contents %}
 <div class="cont">
-  <form method="POST" action="/Update/{{student.ID}}" autocomplete="off" id="update_form">
+  <form method="post" action="/Update/{{student.ID}}" autocomplete="off" id="update_form">
       {% csrf_token %}
       <h>update Student Page</h>
       <div class='input-box' >
-          <label for="Student ID">Student ID</label>
-          <input type="text" name="ID" required value={{student.ID}} />
-          </div>
+          <label for="ID">Student ID</label>
+          <input id="ID" type="text" name="ID" required value={{student.ID}} readonly/>
+      </div>
       
 
       <div class='input-box'>
         <label for="name">  Student name</label>
-        <input type="text" name="name" value={{student.name}} />
+        <input type="text" name="name" value={{student.name}} required/>
       </div>
       <div class='input-box' > 
-        <label for="E">E-Mail</label> 
-        <input type="email" name="email" value={{student.email}} />
+        <label for="email">E-Mail</label> 
+        <input id="E" type="email" name="email" value={{student.email}} required/>
       </div>
           
           <div class='input-box'>
-            <label for="pn">Mobile number</label>
-            <input type="text" name="phone" id="phone" value={{student.phone}} />
+            <label for="phone">Mobile number</label>
+            <input type="text" name="phone" id="phone" value={{student.phone}} required/>
           </div>
            
           <div class='input-box' >
         
-        <label for="Date">Date of birth</label>
-         <input id="Date" type="date"  name="date" value={{student.date_of_birth|date:'Y-m-d'}}>
+        <label for="date">Date of birth</label>
+         <input id="date" type="date"  name="date" value={{student.birthDate|date:'Y-m-d'}} required>
       </div>
       <div class='input-box' >
       <label for="GPA">GPA</label>
@@ -59,7 +59,7 @@
 
           <div class="input-box">
             <label for="department">department</label>
-            <select id="department" name="department"  >
+            <select id="department" name="department" disabled="true">
               <option value="General"{%if student.department == 'General' %}selected{%endif%}>General</option>
               <option value="CS"{%if student.department == 'CS' %}selected{%endif%}>CS</option>
               <option value="IT"{%if student.department == 'IT' %}selected{%endif%}>IT</option>
@@ -70,28 +70,28 @@
           <div class="input-box">
             <label for="gender">Gender</label>
             <br>
-            <input id="gender" type="radio" value="male" name="gender" {%if student.gender == 'male' %}checked{% endif %}>
-            <label for="gender">Male</label>
+            <input id="male" type="radio" value="male" name="gender" {%if student.gender == 'male' %}checked{% endif %}>
+            <label for="male">Male</label>
             <br>
-            <input id="gender" type="radio" value="female" name="gender" {%if student.gender == 'female' %}checked{% endif %}>
-            <label for="gender">Female</label>
+            <input id="female" type="radio" value="female" name="gender" {%if student.gender == 'female' or student.gender == 'Female' %}checked{% endif %}>
+            <label for="female">Female</label>
           </div>
           
           <div class="input-box">
               
             <label for="status">status</label>
             <br>
-            <input id="status" type="radio" value="active" name="status"  required {%if student.status == 'active' %}checked{%endif%}/>
-            <label id="status">active</label>
+            <input id="active" type="radio" value="active" name="status"  required {%if student.status == 'active' %}checked{%endif%}/>
+            <label for="active">active</label>
             <br>
-            <input id="status" type="radio" value="inactive" name="status" required {%if student.status == 'inactive' %}checked{%endif%} />
-            <label id="status">inactive</label>
+            <input id="inactive" type="radio" value="inactive" name="status" required {%if student.status == 'inactive' %}checked{%endif%} />
+            <label for="inactive">inactive</label>
           </div>
            
 
           <div class="button_">
             <input type="submit" value="Update" name="update"/>
-            <a href="/delete/{{student.ID}}"><input type="button" value="delete"></a>
+            <input type="button" value="delete" id="delete" onclick="deleteFunc('{{student.ID}}')">
           </div>
       
       <div>

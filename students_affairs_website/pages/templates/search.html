@@ -7,8 +7,7 @@
 
 <link rel="stylesheet" href="{% static 'css/style.css' %}" />
 <link rel="stylesheet" href="{% static 'css/fontawesome/css/all.css' %}" />
-<script src="../JS/menu.js" defer></script>
-<script src="{%static '/JS/search.js'%}" defer></script>
+<script src="{%static 'JS/search.js'%}" defer></script>
 <title>Search</title>
 {% endblock %}
 
@@ -22,8 +21,7 @@
     <h2>search for active student</h2>
     <form method="get">
       <i class="fa fa-search"></i>
-      <input type="search" name="q"  id="mysearch" placeholder="search" />
-      <input type="submit" name="submit" class="submit" value="Search">
+      <input type="search" name="q" id="mysearch" placeholder="search"/>
     </form>
 
   </div>
@@ -35,19 +33,20 @@
       <tr class="table-row">
         <th id="Id">ID</th>
         <th id="name">Name</th>
+        <th id="level">Level</th>
         <th id="department">Department</th>
         <th id="editDepartment">Edit department</th>
       </tr>
     </thead>
     <tbody id="tbody">
-    {% for data in data %}
-    <tr>
-      <td>{{data.ID}}</td>
-      <td>{{data.name}}</td>
-      <td>{{data.department}}</td>
-<!--      <td>{{data.editDepartment}}</td>-->
-      <td><a href="department/{{data.ID}}"><i class="fa-regular fa-pen-to-square fa-lg" style="color: #fe5f55;"></i></a></td>
-    </tr>
+    {% for d in data %}
+      <tr>
+        <td>{{d.ID}}</td>
+        <td>{{d.name}}</td>
+        <td>{{d.level}}</td>
+        <td>{{d.department}}</td>
+        <td><a href={% if d.level == '3' or d.level == '4' %}"department/{{d.ID}}"{% endif %}><i class="fa-regular fa-pen-to-square fa-lg" style="color: #fe5f55;"></i></a></td>
+      </tr>
     {% endfor %}
     </tbody>
   </table>

@@ -9,6 +9,7 @@ urlpatterns = [
     path('home/ADD-STUDENT/',views.add, name = 'ADD-STUDENT'),
     path('search/department/<str:ID>', views.department, name='department'),
     path('search/',views.search,name='search'),
+    path('search_students/',views.search_students,name='search_students'),
     path('studentsPage/', views.students_page, name='studentsPage'),
     path('get_data/', views.get_data, name='studentssPage'),
     path('update_data/', views.update_data, name='update_data'),

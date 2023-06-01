@@ -6,7 +6,6 @@
 <link rel="stylesheet" href="{% static 'css/style.css' %}" />
 <link rel="stylesheet" href="{% static 'css/fontawesome/css/all.css' %}" />
 <link rel="stylesheet" href="{% static 'css/update.css' %}" />
-<!-- <script src="../JS/menu.js" defer></script> -->
 <title>Edit student page</title>
 {% endblock %}
 
@@ -46,7 +45,7 @@
         <!-- date -->
         <label for="Date">Date of birth</label>
 
-        <input id="Date" type="date" name="date" required />
+        <input id="Date" type="date" name="birthDate" required />
       </div>
       <div class="input-box">
         <!-- GPA -->
@@ -56,7 +55,7 @@
       </div>
       <div class="input-box">
         <label for="DP"> Department </label>
-        <input id="DP" name="Department" disabled />
+        <input id="DP" name="department" disabled />
       </div>
 
       <div class="input-box">
@@ -75,10 +74,10 @@
         <br />
         <label for="gender">Gender</label>
         <br />
-        <input id="gender" type="radio" value="Male" name="gender" required />
+        <input id="gender" type="radio" value="male" name="gender" required />
         <label id="gender">Male</label>
         <br />
-        <input id="gender" type="radio" value="Female" name="gender" required />
+        <input id="gender" type="radio" value="female" name="gender" required />
         <label id="gender">Female</label>
       </div>
       <div class="input-box">

@@ -1,12 +1,12 @@
 form.addEventListener("submit", (event) => {
     event.preventDefault();
     const name = document.getElementById("name").value;
-    const id = document.getElementById("Student ID").value;
-    const date = document.getElementById("Date").value;
+    const id = document.getElementById("ID").value;
+    const date = document.getElementById("date").value;
     const myGPA = document.getElementById("GPA").value;
     const email = document.getElementById("E").value;
-    const phone = document.getElementById("pn").value;
-    const dep = document.getElementById("DP").value;
+    const phone = document.getElementById("phone").value;
+
     const level = document.getElementById("level").value;
     const gender = document.getElementById("gender").value;
 
@@ -46,9 +46,15 @@ form.addEventListener("submit", (event) => {
     }
 
     if (flag == true) {
-
-      student.save();
-      confirm("Information updated successfully.");
-      window.location.href = "HOME.html";
+      alert("Information updated successfully.");
+      form.submit();
     }
   });
+
+function deleteFunc(studentID){
+    console.log(studentID);
+    let ok = confirm("Are you sure you want to delete this student?");
+    if (ok) {
+        window.location.href = '/delete/' + studentID;
+    }
+}

@@ -82,6 +82,26 @@ def search(request):
     }
     return render(request,'search.html',context)
 
+def search_students(request):
+      value = request.GET.get('searchValue')
+      if(value != ''):
+          data=Student.objects.filter(ID__icontains=value, status="active")|Student.objects.filter(name__icontains=value, status="active")
+      else:
+          data =Student.objects.filter(status="active")
+      filtered_data = []
+      for student in data:
+          filtered_data.append({
+              'ID': student.ID,
+              'name': student.name,
+              'GPA': str(student.GPA),
+              'level': student.level,
+              'department': student.department,
+          })
+
+      return JsonResponse(filtered_data, safe=False)
+
+
+
 def update_data(request):
   student_id = request.POST.get('student_id')
   student = Student.objects.get(ID=student_id)
@@ -97,24 +117,31 @@ def update_data(request):
 
 def edit(request, ID):
     student = Student.objects.get(ID=ID)
-    form = StudentForm(instance=student)
-    return render(request,'Edit.html', {'form':form, 'student':student})
+    return render(request,'Edit.html', {'student':student})
 
 
 def Update_d(request,ID):
-    student = Student.objects.get(ID=ID)
-    form = StudentForm(request.POST or None,instance=student)
-    if form.is_valid():
-     form.save()
-     return redirect("/home/")
-    return render(request, 'Edit.html', {'form':form})
+      if request.method == 'POST':
+        student = Student.objects.get(ID=ID)
+        student.name = request.POST.get('name')
+        student.birthDate = datetime.strptime(request.POST.get('date'), '%Y-%m-%d').date()
+        student.email = request.POST.get('email')
+        student.level = request.POST.get('level')
+        student.gender = request.POST.get('gender')
+        student.status = request.POST.get('status')
+        student.phone = request.POST.get('phone')
+        student.GPA = request.POST.get('GPA')
+        student.save()
+    
+        return redirect("/home/")
+      else:
+        return redirect("/home/")
 
 
 def delete(request, ID):  
     student= Student.objects.get(ID=ID)  
     student.delete()  
     return redirect("/home/")
-
 
 
 def filter_data(request):
