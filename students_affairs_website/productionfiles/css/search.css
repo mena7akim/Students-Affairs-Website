@@ -1,0 +1,118 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap");
+
+:root {
+  --c0: rgb(255, 35, 20);
+  --c1: rgba(254, 95, 85);
+  --c2: rgba(247, 247, 255);
+  --c3: rgba(189, 213, 234);
+  --c4: rgb(19, 99, 223);
+  --c5: rgb(44, 116, 179);
+  --c6: rgb(212, 226, 240);
+  font-size: 16px;
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  gap: 3rem;
+  padding: 5rem 0rem;
+  flex-direction: column;
+}
+.search-content {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  background-color: white;
+  border-radius: 2rem;
+  padding: 50px 75px;
+  width: 50%;
+  box-shadow: 5px 5px 10px 1px rgb(0, 0, 0, 12%);
+  flex-grow: 1;
+}
+
+.img_ {
+  width: 20rem;
+}
+
+.container h2 {
+  text-align: center;
+  padding: 1rem;
+}
+
+.search-content form {
+  background-color: var(--c2);
+  border: var(--c4) 0.2rem solid;
+  border-radius: 200px;
+  padding: 6px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  transition: all 0.3s;
+}
+
+.search-content form:hover,
+.second-content form:focus {
+  border: var(--c5) 0.2rem solid;
+  padding: 6px 10px;
+}
+
+.search-content form i {
+  padding: 10px;
+  color: var(--c4);
+  transition: all 0.3s;
+}
+
+.search-content form:hover i,
+.second-content form:focus i {
+  color: var(--c5);
+}
+
+.search-content input[type="search"] {
+  flex: 1;
+  min-width: 0;
+  border: none;
+  outline: none;
+  padding: 0px 5px;
+  background-color: rgba(0, 0, 0, 0);
+}
+
+.table-content {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 3rem;
+}
+
+table {
+  text-align: center;
+  border-collapse: collapse;
+  border-radius: 0.5rem;
+  overflow: hidden;
+  width: 100%;
+}
+
+th {
+  background-color: var(--c1);
+  color: white;
+}
+
+th,
+.table-col {
+  padding: 1rem;
+}
+
+.table-row:nth-child(even) {
+  background-color: var(--c3);
+}
+
+.table-row:nth-child(odd) {
+  background-color: var(--c2);
+}
+
+.fa-regular:hover {
+  cursor: pointer;
+}
+/*/////////////////////////////////////////////////////////*/

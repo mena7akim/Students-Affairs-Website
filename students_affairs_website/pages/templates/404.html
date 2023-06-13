@@ -4,10 +4,10 @@
 
 {% block styles %}
 <link rel="stylesheet" href="{% static 'css/style.css' %}" />
-<link rel="stylesheet" href="{% static 'cssfontawesome/css/all.css' %}" />
+<link rel="stylesheet" href="{% static 'fontawesome/css/all.css' %}" />
+<link rel="stylesheet" href="{% static 'css/404.css' %}" />
 {% endblock %}
 
 {% block contents %}
-<h1>Page was Not Found</h1>
-<p>Requested Page was Not Found. Try Enter a Valid URL.</p>
+<img src="{% static 'img\errorImage.jpg' %}" alt="Page Not Found" style="width: 50%; height:50%;"/>
 {% endblock %}

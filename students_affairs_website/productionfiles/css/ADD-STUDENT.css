@@ -1,0 +1,240 @@
+/* Done By DOAA */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap");
+
+:root {
+  --c0: rgb(255, 35, 20);
+  --c1: rgba(254, 95, 85);
+  --c2: rgba(247, 247, 255);
+  --c3: rgba(189, 213, 234);
+  --c4: rgb(19, 99, 223);
+  --c5: rgb(44, 116, 179);
+  --c6: rgb(212, 226, 240);
+  font-size: 16px;
+}
+
+.add-student-page {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--c6);
+  min-height: 100vh;
+  /* background: linear-gradient(var(--c2),var(--c3)); */
+}
+
+.big-cont {
+  z-index: 50;
+  position: absolute;
+  top: 110px;
+  max-width: 700px;
+  width: 100%;
+  background-color: #fff;
+  padding: 25px 30px;
+  border-radius: 5px;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15);
+}
+
+.title {
+  /* color: #9b59b6; */
+  color: var(--c5);
+  font-size: 25px;
+  font-weight: 500;
+  position: relative;
+}
+
+.title::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 3px;
+  width: 30px;
+  border-radius: 5px;
+  background: linear-gradient(135deg, var(--c1), var(--c4));
+}
+
+.left-cont {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin: 10px 0 12px 0;
+}
+
+.inp-cont input {
+  height: 45px;
+  width: 100%;
+  outline: none;
+  font-size: 16px;
+  border-radius: 5px;
+  padding-left: 15px;
+  border: 1px solid #ccc;
+  border-bottom-width: 2px;
+  transition: all 0.3s ease;
+}
+
+.inp-cont select {
+  height: 45px;
+  width: 100%;
+  outline: none;
+  font-size: 16px;
+  border-radius: 5px;
+  padding-left: 15px;
+  border: 1px solid #ccc;
+  border-bottom-width: 2px;
+  text-align: center;
+  background-color: white;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+form .user .inp-cont {
+  margin-bottom: 15px;
+  width: calc(100% / 2 - 20px);
+}
+
+.inp-cont input:focus,
+.inp-cont input:valid,
+.inp-cont select:focus {
+  border-color: #9b59b6;
+}
+
+form .user {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin: 20px 0 12px 0;
+}
+
+form input[type="radio"] {
+  width: 16px;
+  height: 16px;
+  margin-top: 10px;
+  margin-left: 20px;
+  margin-right: 20px;
+  display: inline;
+}
+form .sub-btn {
+  height: 45px;
+  margin-top: 5px;
+  margin: auto;
+}
+form button {
+  height: 100%;
+  width: 80%;
+  border-radius: 5px;
+  border: none;
+  color: #fff;
+  font-size: 18px;
+  font-weight: 500;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  background-color: var(--c0);
+  /* background: linear-gradient(135deg,var(--c1),var(--c4)); */
+}
+
+form button:hover:not([disabled]),
+.popup button:hover {
+  /* transform: scale(0.99); */
+  background: linear-gradient(135deg, var(--c0), var(--c4));
+}
+.inp-cont.success input,
+.Gender-inp.success input {
+  border-color: #09c372;
+}
+
+.inp-cont.error input {
+  height: 45px;
+  width: 100%;
+  outline: none;
+  font-size: 16px;
+  border-radius: 5px;
+  padding-left: 15px;
+  border: 1px solid #ff3860;
+  border-bottom-width: 2px;
+  transition: all 0.3s ease;
+}
+
+.Gender-inp.error,
+.status-inp.error {
+  color: #ff3860;
+  font-size: 15px;
+}
+
+.inp-cont.error {
+  color: #ff3860;
+  font-size: 10px;
+}
+
+label {
+  color: #333;
+  font-size: 20px;
+  font-family: "poppins", sans-serif;
+}
+
+.popup {
+  z-index: 110px;
+  width: 400px;
+  background: #fff;
+  border: 3px solid rgb(11, 119, 11);
+  border-radius: 6px;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0.1);
+  text-align: center;
+  padding: 0 30px 30px;
+  color: #333;
+  visibility: hidden;
+  transition: transform 0.4s, top 0.4s;
+}
+.open-popup {
+  visibility: visible;
+  top: 50%;
+  transform: translate(-50%, -50%) scale(1);
+}
+
+.popup img {
+  width: 100px;
+  margin-top: -50px;
+  border-radius: 50%;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+.popup h2 {
+  font-size: 38px;
+  font-weight: 500;
+  margin: 30px 0 10px;
+}
+.popup button {
+  margin-top: 50px;
+  padding: 10px 0;
+  box-shadow: 0 5px 5px rgba(0, 0, 0, 0.2);
+  height: 100%;
+  width: 80%;
+  border-radius: 5px;
+  border: none;
+  color: #fff;
+  font-size: 18px;
+  font-weight: 500;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  background: #6fd649;
+}
+
+.blur.active {
+  filter: blur(3px);
+  pointer-events: none;
+  user-select: none;
+}
+
+@media (max-width: 584px) {
+  .big-cont {
+    max-width: 100%;
+  }
+}
+@media (max-width: 459px) {
+  .container .content .category {
+    flex-direction: column;
+  }
+}

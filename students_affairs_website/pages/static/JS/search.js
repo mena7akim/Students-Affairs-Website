@@ -1,5 +1,3 @@
-
-
 document.getElementById("mysearch").addEventListener("input",()=>{
         var searchValue = document.getElementById('mysearch').value;
         var xhr = new XMLHttpRequest();
@@ -40,9 +38,6 @@ document.getElementById("mysearch").addEventListener("input",()=>{
                     editIcon.style.color = 'rgba(254, 95, 85)';
                     if(item.level == "3" || item.level == "4"){
                         editLink.href = 'department/' + item.ID;
-                    }
-                    else{
-                        alert("You can only change the department for students whose level greater than 2");
                     }
                     editLink.appendChild(editIcon);
                     editCol.appendChild(editLink);

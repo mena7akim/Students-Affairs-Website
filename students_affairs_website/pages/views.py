@@ -153,7 +153,7 @@ def filter_data(request):
 
     if sort == 'GPA':
       filtered_students = filtered_students = Student.objects.all().order_by('-GPA')
-    else:
+    elif sort and sort != 'null':
       filtered_students = filtered_students = Student.objects.all().order_by(sort)
 
     if department and department != 'null':
@@ -188,7 +188,7 @@ def filter_data(request):
         filtered_data.append({
             'ID': student.ID,
             'name': student.name,
-            'GPA': str(student.GPA),
+            'GPA': student.GPA,
             'level': student.level,
             'department': student.department,
         })
