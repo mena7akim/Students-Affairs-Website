@@ -1,4 +1,4 @@
-form.addEventListener("submit", (event) => {
+document.getElementById("update_form").addEventListener("submit", (event) => {
     event.preventDefault();
     const name = document.getElementById("name").value;
     const id = document.getElementById("ID").value;
@@ -6,19 +6,17 @@ form.addEventListener("submit", (event) => {
     const myGPA = document.getElementById("GPA").value;
     const email = document.getElementById("E").value;
     const phone = document.getElementById("phone").value;
-
     const level = document.getElementById("level").value;
-    const gender = document.getElementById("gender").value;
+    
+    let genderValue = "male";
+    if (document.getElementById("female").checked) genderValue = "female";
 
-    if (gender[0].checked) genderValue = gender[0].value;
-    else genderValue = gender[1].value;
-
-    let stat_Value = "";
-    if (status[0].checked) stat_Value = status[0].value;
-    else stat_Value = status[1].value;
-
+    let stat_Value = "active";
+    if (document.getElementById("inactive").checked) stat_Value = "inactive";
+    let flag = true;
     if (name == "" || email == "" || phone == "") {
       alert("Please fill in all fields.");
+      console.log("ERORR");
       flag = false;
       return false;
     }
@@ -26,6 +24,7 @@ form.addEventListener("submit", (event) => {
     var nameRegex = /^[a-zA-Z ]+$/;
     if (!nameRegex.test(name)) {
       alert("Please enter a valid name.");
+      console.log("ERORR");
       flag = false;
       return false;
     }
@@ -33,6 +32,7 @@ form.addEventListener("submit", (event) => {
     var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(email)) {
       alert("Please enter a valid email address.");
+      console.log("ERORR");
       flag = false;
       return false;
     }
@@ -41,13 +41,15 @@ form.addEventListener("submit", (event) => {
     var phoneRegex = /^\d{11}$/;
     if (!phoneRegex.test(phone)) {
       alert("Please enter a valid phone number.");
+      console.log("ERORR");
       flag = false;
       return false;
     }
 
     if (flag == true) {
       alert("Information updated successfully.");
-      form.submit();
+      console.log("SUCCESS");
+      document.getElementById("update_form").submit();
     }
   });
 

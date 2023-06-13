@@ -43,7 +43,6 @@ document.getElementById("sub-btn").onclick = function (e) {
     isValidStatus() &&
     isValidDate(dateValue)
   ) {
-    // Make AJAX request to checkExist endpoint
     const xhr = new XMLHttpRequest();
     xhr.open("GET", "/Exist/?ID=" + idValue + "&Email=" + emailValue, true);
     xhr.onreadystatechange = function () {

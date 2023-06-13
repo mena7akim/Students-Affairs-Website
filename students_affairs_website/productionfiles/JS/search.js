@@ -1,5 +1,3 @@
-
-
 document.getElementById("mysearch").addEventListener("input",()=>{
         var searchValue = document.getElementById('mysearch').value;
         var xhr = new XMLHttpRequest();

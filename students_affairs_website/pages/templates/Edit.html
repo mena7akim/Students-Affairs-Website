@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="{% static 'css/style.css' %}" />
     <link rel="stylesheet" href="{% static 'cssfontawesome/css/all.css' %}" />
     <link rel="stylesheet" href="{% static 'css/update.css' %}" />
-    <script src="{% static 'js/edit.js' %}" defer></script>
+    <script src="{% static 'JS/edit.js' %}" defer></script>
     <title>Edit student page</title>
 {% endblock %}
   
@@ -25,7 +25,7 @@
 
       <div class='input-box'>
         <label for="name">  Student name</label>
-        <input type="text" name="name" value={{student.name}} required/>
+        <input id="name" type="text" name="name" value={{student.name}} required/>
       </div>
       <div class='input-box' > 
         <label for="email">E-Mail</label> 
@@ -101,6 +101,6 @@
     </div>
     </form>
   </div>
-  <script src="{% static 'update.js' %}"></script>
+  <script src="{% static 'edit.js' %}"></script>
 {% endblock %}
  
